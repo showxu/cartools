@@ -6,17 +6,24 @@
 //  Copyright © 2015年 Alchemistxxd. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "AXAppDelegate.h"
+#import "UINavigationBar+AXStylish.h"
 
-@interface AppDelegate ()
+@interface AXAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation AXAppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [UINavigationBar appearance].tintColor = [UIColor colorWithRed:1.000 green:0.200 blue:0.000 alpha:1.000];
+    
+    // only font, text color, text shadow color, and text shadow offset attributes are allowed
+    NSShadow *shadowAttribute = [[NSShadow alloc] init];
+    shadowAttribute.shadowOffset = CGSizeMake(1.0, 1.0);
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithRed:1.000 green:0.200 blue:0.000 alpha:1.000], NSFontAttributeName:[UIFont preferredFontForTextStyle:UIFontTextStyleTitle1], NSShadowAttributeName:shadowAttribute, NSKernAttributeName:@100};
     return YES;
 }
 

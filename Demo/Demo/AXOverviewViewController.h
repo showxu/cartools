@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  AXViewController.h
 //  Demo
 //
 //  Created by XuXudong on 15/12/12.
@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface AXOverviewViewController : UIViewController
 
 @end
 
