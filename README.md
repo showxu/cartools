@@ -44,10 +44,15 @@ More details are in the demo.
 
 ## Installation
 
-Just 
-
 ```
 #import "UINavigationBar+AXStylish.h"
+```
+
+Or
+
+```
+$ pod setup
+$ pod search AXStylishNavigationBar
 ```
 
 ## License
