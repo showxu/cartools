@@ -106,7 +106,6 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    
     CGFloat offsetY = scrollView.contentOffset.y + AUTO_ADJUST_INSET;
     CGFloat navigationBarHeight = CGRectGetHeight(self.navigationController.navigationBar.bounds);
     CGFloat alpha = (navigationBarHeight - offsetY) / navigationBarHeight;

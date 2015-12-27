@@ -51,7 +51,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     switch (_bgMode) {
         case AXBGBlur: {
             [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
@@ -77,8 +76,7 @@
 {
     CGFloat offsetY = scrollView.contentOffset.y + AUTO_ADJUST_INSET;
     CGFloat alpha = offsetY / AUTO_ADJUST_INSET;
-    if (offsetY > 0)
-    {
+    if (offsetY > 0) {
         [self.navigationController.navigationBar ax_selfOffCenteringOffsetX:0 offsetY:MAX(- 44, MIN(0, AUTO_ADJUST_INSET - offsetY))];
         [self.navigationController.navigationBar ax_setBackIndicatorViewAlpha:2 - alpha];
         switch (_bgMode) {
@@ -95,9 +93,7 @@
                  break;
             }
         }
-    }
-    else
-    {
+    } else {
         [self.navigationController.navigationBar ax_selfOffCenteringOffsetX:0 offsetY:0];
         [self.navigationController.navigationBar ax_setBackIndicatorViewAlpha:1];
         switch (_bgMode) {
