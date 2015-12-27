@@ -1,5 +1,11 @@
 # AXStylishNavigationBar
 
+[![CocoaPods](https://img.shields.io/cocoapods/p/AXStylishNavigationBar.svg)]()
+[![GitHub release](https://img.shields.io/github/release/Alchemistxxd/AXStylishNavigationBar.svg)]()
+[![GitHub tag](https://img.shields.io/github/tag/Alchemistxxd/AXStylishNavigationBar.svg)]()
+[![CocoaPods](https://img.shields.io/cocoapods/v/AXStylishNavigationBar.svg)]()
+[![CocoaPods](https://img.shields.io/cocoapods/l/AXStylishNavigationBar.svg)]()
+
 AXStylishNavigationBar is a NavigationBar category can let you dynamically change the background color, image, blur effect.
 
 ## Usage
