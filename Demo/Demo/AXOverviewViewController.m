@@ -9,10 +9,15 @@
 #import "AXOverviewViewController.h"
 #import "AXDetailViewController.h"
 #import "UINavigationBar+AXStylish.h"
+#import "AXArrayDataSource.h"
+#import "UITableViewCell+ConfigureCell.h"
 
-@interface AXOverviewViewController () <UITableViewDelegate, UITableViewDataSource>
+static NSString * const cellIdentifier = @"cell";
+
+@interface AXOverviewViewController () <UITableViewDelegate>
 
 @property (nonatomic, copy) NSArray *cellData;
+@property (nonatomic, strong) AXArrayDataSource *dataArryDataSource;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
@@ -26,10 +31,8 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.ax_showShadowView = NO;
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.estimatedRowHeight = 48;
     [self fetchTestData];
+    [self configureTableView];
 }
 
 - (void)fetchTestData
@@ -40,6 +43,17 @@
     NSDictionary *cellDataDict = [NSJSONSerialization JSONObjectWithData:cellData options:NSJSONReadingAllowFragments error:&error];
     NSLog(@"%@", error);
     self.cellData = cellDataDict[@"Metal Gear"];
+}
+
+- (void)configureTableView
+{
+    self.tableView.estimatedRowHeight = 48;
+    AXTableViewCellConfigBlock configBlock = ^(UITableViewCell *aCell, NSDictionary *aDict) {
+        [aCell configData:aDict];
+    };
+    self.dataArryDataSource = [[AXArrayDataSource alloc] initWithItems:self.cellData cellIdentifier:cellIdentifier cellconfigBlock:configBlock];
+    self.tableView.dataSource = self.dataArryDataSource;
+    self.tableView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -58,35 +72,6 @@
     self.navigationItem.title = @"";
 }
 
-#pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return _cellData.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    [self configCell:cell atIndexPath:indexPath];
-    return cell;
-}
-
-- (void)configCell:(UITableViewCell *)aCell atIndexPath:(NSIndexPath *)indexPath
-{
-    NSShadow *shadowAttribute = [[NSShadow alloc] init];
-    shadowAttribute.shadowOffset = CGSizeMake(1.0, 1.0);
-    NSDictionary *attributeDict = @{NSFontAttributeName:[UIFont preferredFontForTextStyle:UIFontTextStyleCallout],
-                                    NSShadowAttributeName:shadowAttribute};
-    aCell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:_cellData[indexPath.row][@"title"]
-                                                                     attributes:attributeDict];
-    aCell.detailTextLabel.text = _cellData[indexPath.row][@"platform(s)"];
-}
-
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -98,10 +83,15 @@
     if ([segue.identifier isEqualToString:@"showAXDVC"])
         if ([segue.destinationViewController isKindOfClass:[AXDetailViewController class]])
         {
-            AXDetailViewController *AXDVC = (AXDetailViewController *)segue.destinationViewController;
-            AXDVC.content = _cellData[[_tableView indexPathForCell:sender].row];
-            AXDVC.bgMode = _segmentedControl.selectedSegmentIndex;
+            AXDetailViewController *axdvc = (AXDetailViewController *)segue.destinationViewController;
+            [self configureAXDVC:axdvc with:sender];
         }
+}
+            
+- (void)configureAXDVC:(AXDetailViewController *)axdvc with:(id)sender
+{
+    axdvc.content = self.cellData[[_tableView indexPathForCell:sender].row];
+    axdvc.bgMode = self.segmentedControl.selectedSegmentIndex;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
