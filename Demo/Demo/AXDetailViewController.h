@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#define AUTO_ADJUST_INSET (32 * (1 + UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation])))
-
 typedef NS_ENUM(NSInteger, AXBGMode)
 {
     AXBGBlur, AXBGColor, AXBGImage

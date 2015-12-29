@@ -36,6 +36,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z6V-tl-5gW">
+                                <rect key="frame" x="0.0" y="540" width="320" height="29"/>
+                                <segments>
+                                    <segment title="BGBlur"/>
+                                    <segment title="BGColor"/>
+                                    <segment title="BGImage"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6RE-X4-AKW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="540"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,20 +77,11 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="eEg-t9-y5J" kind="show" identifier="showAXDVC" id="WwG-2K-jjc"/>
+                                            <segue destination="eEg-t9-y5J" kind="show" id="CSo-QK-BHz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z6V-tl-5gW">
-                                <rect key="frame" x="0.0" y="540" width="320" height="29"/>
-                                <segments>
-                                    <segment title="BGBlur"/>
-                                    <segment title="BGColor"/>
-                                    <segment title="BGImage"/>
-                                </segments>
-                                <color key="tintColor" red="1" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -106,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="349"/>
+            <point key="canvasLocation" x="1126" y="349"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="UnL-eu-pR3">
@@ -179,13 +179,15 @@
                         <outlet property="containerView" destination="C4J-aP-Ajb" id="q2t-xW-gsH"/>
                         <outlet property="containerViewHeightConstraint" destination="rha-45-IbF" id="HoD-VW-Tz2"/>
                         <outlet property="imageView" destination="Htj-Ua-lW1" id="pRA-Ne-Myf"/>
+                        <outlet property="imageViewBottomSpaceToStoryLabel" destination="U22-mA-UUe" id="3ZS-GN-Nmb"/>
+                        <outlet property="imageViewTopSpaceToSuperView" destination="O6g-VP-ect" id="TzH-hV-cd3"/>
                         <outlet property="scrollView" destination="qRH-eE-vWC" id="heG-hm-9hp"/>
                         <outlet property="storyLabel" destination="6Cp-wm-fM0" id="dxU-kc-Ylv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cgh-B5-aYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="349"/>
+            <point key="canvasLocation" x="1575" y="349"/>
         </scene>
     </scenes>
     <resources>

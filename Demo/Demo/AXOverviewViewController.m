@@ -9,15 +9,15 @@
 #import "AXOverviewViewController.h"
 #import "AXDetailViewController.h"
 #import "UINavigationBar+AXStylish.h"
-#import "AXArrayDataSource.h"
-#import "UITableViewCell+ConfigureCell.h"
+#import "AXOVCTableViewDataSource.h"
+#import "UITableViewCell+ConfigureCellData.h"
 
 static NSString * const cellIdentifier = @"cell";
 
 @interface AXOverviewViewController () <UITableViewDelegate>
 
 @property (nonatomic, copy) NSArray *cellData;
-@property (nonatomic, strong) AXArrayDataSource *dataArryDataSource;
+@property (nonatomic, strong) AXOVCTableViewDataSource *tableViewDataSource;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
@@ -48,11 +48,14 @@ static NSString * const cellIdentifier = @"cell";
 - (void)configureTableView
 {
     self.tableView.estimatedRowHeight = 48;
-    AXTableViewCellConfigBlock configBlock = ^(UITableViewCell *aCell, NSDictionary *aDict) {
-        [aCell configData:aDict];
-    };
-    self.dataArryDataSource = [[AXArrayDataSource alloc] initWithItems:self.cellData cellIdentifier:cellIdentifier cellconfigBlock:configBlock];
-    self.tableView.dataSource = self.dataArryDataSource;
+
+    self.tableViewDataSource =
+        [[AXOVCTableViewDataSource alloc] initWithItems:self.cellData
+                                         cellIdentifier:cellIdentifier
+                                        cellConfigBlock:^(UITableViewCell *aCell, NSDictionary *aDict) {
+        [aCell configureData:aDict];
+    }];
+    self.tableView.dataSource = self.tableViewDataSource;
     self.tableView.delegate = self;
 }
 
@@ -72,12 +75,6 @@ static NSString * const cellIdentifier = @"cell";
     self.navigationItem.title = @"";
 }
 
-#pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView cellForRowAtIndexPath:indexPath].selected = NO;
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showAXDVC"])
@@ -94,11 +91,17 @@ static NSString * const cellIdentifier = @"cell";
     axdvc.bgMode = self.segmentedControl.selectedSegmentIndex;
 }
 
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView cellForRowAtIndexPath:indexPath].selected = NO;
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat offsetY = scrollView.contentOffset.y + AUTO_ADJUST_INSET;
-    CGFloat navigationBarHeight = CGRectGetHeight(self.navigationController.navigationBar.bounds);
-    CGFloat alpha = (navigationBarHeight - offsetY) / navigationBarHeight;
+    CGFloat autoAdjustInset = 32 * (1 + UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation]));
+    CGFloat offsetY = scrollView.contentOffset.y;
+    CGFloat alpha = - offsetY / autoAdjustInset;
     if (offsetY > 0)
         [self.navigationController.navigationBar ax_setTitleViewAlpha:MIN(alpha, 1.000)];
     else

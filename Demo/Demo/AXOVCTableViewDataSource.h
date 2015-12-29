@@ -9,12 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef void (^AXTableViewCellConfigBlock)(id cell, id item);
-
-@interface AXArrayDataSource : NSObject <UITableViewDataSource>
+@interface AXOVCTableViewDataSource : NSObject <UITableViewDataSource>
 
 - (instancetype)initWithItems:(NSArray *)items
                cellIdentifier:(NSString *)aCellIdentifier
-              cellconfigBlock:(AXTableViewCellConfigBlock)block;
+              cellConfigBlock:(void (^)(id aCell, id anItem))congfigBlock;
 
 @end

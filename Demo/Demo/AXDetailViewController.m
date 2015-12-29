@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *storyLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewTopSpaceToSuperView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewBottomSpaceToStoryLabel;
 
 @end
 
@@ -25,15 +27,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _scrollView.delegate = self;
-    _imageView.image = [UIImage imageNamed:_content[@"coverImageName"]];
-    [self configStoryLabel:_storyLabel];
+    self.scrollView.delegate = self;
+    self.imageView.image = [UIImage imageNamed:self.content[@"coverImageName"]];
+    [self configStoryLabel:self.storyLabel];
 }
 
 - (void)configStoryLabel:(UILabel *)label
 {
     NSDictionary *attributeDict = @{NSFontAttributeName:[UIFont preferredFontForTextStyle:UIFontTextStyleFootnote], NSUnderlineStyleAttributeName:@1};
-    label.attributedText = [[NSAttributedString alloc] initWithString: _content[@"story"] attributes:attributeDict];
+    label.attributedText = [[NSAttributedString alloc] initWithString: self.content[@"story"] attributes:attributeDict];
 }
 
 - (void)viewDidLayoutSubviews
@@ -44,24 +46,24 @@
 
 - (void)configContainerViewHeight
 {
-    CGSize storyLabelSize = [_storyLabel sizeThatFits:CGSizeMake(CGRectGetWidth(_storyLabel.bounds), CGFLOAT_MAX)];
-    _containerViewHeightConstraint.constant = storyLabelSize.height + CGRectGetHeight(_imageView.bounds) + 8 + 20 - CGRectGetHeight(_containerView.superview.bounds);
+    CGSize storyLabelSize = [self.storyLabel sizeThatFits:CGSizeMake(CGRectGetWidth(self.storyLabel.bounds), CGFLOAT_MAX)];
+    self.containerViewHeightConstraint.constant = self.imageViewTopSpaceToSuperView.constant + CGRectGetHeight(self.imageView.bounds) + self.imageViewBottomSpaceToStoryLabel.constant + storyLabelSize.height - CGRectGetHeight(self.containerView.superview.bounds);
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    switch (_bgMode) {
-        case AXBGBlur: {
+    switch (_bgMode)
+    {
+        case AXBGBlur:
             [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
             [self.navigationController.navigationBar ax_setBlurBackgroundAlpha:0.000];
             break;
-        }
-        case AXBGColor: {
+        case AXBGColor:
             [self.navigationController.navigationBar ax_setBackgroundColor:[UIColor colorWithWhite:0.800 alpha:1.000]];
             break;
-        }
-        case AXBGImage: {
+        case AXBGImage:
+        {
             // If the filetype is .png, iOS will not resize it for UINavigationbar, it should be manually resized.
             UIImage *logoImg = [[UIImage imageNamed:_content[@"logoImageName"]] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, CGFLOAT_MAX, CGFLOAT_MAX)];
             [self.navigationController.navigationBar ax_setBackgroundImage:logoImg forBarMetrics:UIBarMetricsDefault];
@@ -74,41 +76,41 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat offsetY = scrollView.contentOffset.y + AUTO_ADJUST_INSET;
-    CGFloat alpha = offsetY / AUTO_ADJUST_INSET;
-    if (offsetY > 0) {
-        [self.navigationController.navigationBar ax_selfOffCenteringOffsetX:0 offsetY:MAX(- 44, MIN(0, AUTO_ADJUST_INSET - offsetY))];
-        [self.navigationController.navigationBar ax_setBackIndicatorViewAlpha:2 - alpha];
-        switch (_bgMode) {
-            case AXBGBlur: {
+    CGFloat autoAdjustInset = 32 * (1 + UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation]));
+    CGFloat offsetY = scrollView.contentOffset.y + autoAdjustInset;
+    CGFloat alpha = offsetY / autoAdjustInset;
+    if (offsetY > 0)
+    {
+        [self.navigationController.navigationBar ax_selfOffCenteringOffsetX:0 offsetY:MAX(- 44, MIN(0, autoAdjustInset - offsetY))];
+        [self.navigationController.navigationBar ax_setBackIndicatorViewAlpha:1.8 - alpha];
+        switch (self.bgMode)
+        {
+            case AXBGBlur:
                 [self.navigationController.navigationBar ax_setBlurBackgroundAlpha:MIN(alpha, 0.999)];
                 break;
-            }
-            case AXBGColor: {
+            case AXBGColor:
                 [self.navigationController.navigationBar ax_setBackgroundColorAlpha:MIN(alpha, 0.900)];
                 break;
-            }
-            case AXBGImage: {
+            case AXBGImage:
                 [self.navigationController.navigationBar ax_setBackgroundImageBackgroundColorAlpha:MIN(alpha, 0.900)];
                  break;
-            }
         }
-    } else {
+    }
+    else
+    {
         [self.navigationController.navigationBar ax_selfOffCenteringOffsetX:0 offsetY:0];
         [self.navigationController.navigationBar ax_setBackIndicatorViewAlpha:1];
-        switch (_bgMode) {
-            case AXBGBlur: {
+        switch (self.bgMode)
+        {
+            case AXBGBlur:
                 [self.navigationController.navigationBar ax_setBlurBackgroundAlpha:0.000];
                 break;
-            }
-            case AXBGColor: {
+            case AXBGColor:
                 [self.navigationController.navigationBar ax_setBackgroundColorAlpha:0.000];
                  break;
-            }
-            case AXBGImage: {
+            case AXBGImage:
                 [self.navigationController.navigationBar ax_setBackgroundImageBackgroundColorAlpha:0.000];
                 break;
-            }
         }
     }
 }

@@ -6,27 +6,27 @@
 //  Copyright © 2015年 Alchemistxxd. All rights reserved.
 //
 
-#import "AXArrayDataSource.h"
+#import "AXOVCTableViewDataSource.h"
 
-@interface AXArrayDataSource ()
+@interface AXOVCTableViewDataSource ()
 
 @property (nonatomic, strong) NSArray *items;
 @property (nonatomic, copy) NSString *cellIdentifier;
-@property (nonatomic, copy) AXTableViewCellConfigBlock configWithBlock;
+@property (nonatomic, copy) void (^configBlock)(id cell, id item);
 
 @end
 
-@implementation AXArrayDataSource
+@implementation AXOVCTableViewDataSource
 
 #pragma mark - Initialization
-- (instancetype)initWithItems:(NSArray *)items cellIdentifier:(NSString *)aCellIdentifier cellconfigBlock:(AXTableViewCellConfigBlock)aCellConfigBlock
+- (instancetype)initWithItems:(NSArray *)items cellIdentifier:(NSString *)aCellIdentifier cellConfigBlock:(void (^)(id, id))congfigBlock
 {
     self = [super init];
     if (self)
     {
         self.items = items;
         self.cellIdentifier = aCellIdentifier;
-        self.configWithBlock = aCellConfigBlock;
+        self.configBlock = congfigBlock;
     }
     return self;
 }
@@ -46,7 +46,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
     id item = [self objectInItemsAtIndexPath:indexPath];
-    self.configWithBlock(cell, item);
+    self.configBlock(cell, item);
     return cell;
 }
 
