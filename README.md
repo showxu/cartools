@@ -1,5 +1,7 @@
 # AXStylishNavigationBar
 
+[![Join the chat at https://gitter.im/Alchemistxxd/AXStylishNavigationBar](https://badges.gitter.im/Alchemistxxd/AXStylishNavigationBar.svg)](https://gitter.im/Alchemistxxd/AXStylishNavigationBar?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![CocoaPods](https://img.shields.io/cocoapods/p/AXStylishNavigationBar.svg)]()
 [![GitHub release](https://img.shields.io/github/release/Alchemistxxd/AXStylishNavigationBar.svg)]()
 [![GitHub tag](https://img.shields.io/github/tag/Alchemistxxd/AXStylishNavigationBar.svg)]()
