@@ -11,14 +11,14 @@ jobs:
       max-parallel: 2
       matrix:  
         configuration: [Debug, Release]
-        target: [cartool]
+        scheme: [cartool]
         arch: [x86_64] 
         sdk: [macosx]
     steps:
     - uses: actions/checkout@v2
     - run: |
         xcodebuild -project Cartools.xcodeproj \
-          -target ${{ matrix.target }} \
+          -scheme ${{ matrix.scheme }} \
           -configuration ${{ matrix.configuration }} \
           -arch ${{ matrix.arch }} \
           -sdk ${{ matrix.sdk }}
