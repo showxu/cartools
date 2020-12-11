@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1230"
+   wasCreatedForAppExtension = "YES"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C1E75023258342AC00395B8B"
-               BuildableName = "cartool"
-               BlueprintName = "cartool"
+               BlueprintIdentifier = "C1E75066258349C200395B8B"
+               BuildableName = "CarPreview.appex"
+               BlueprintName = "CarPreview"
                ReferencedContainer = "container:Cartools.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,29 +45,38 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C1E75023258342AC00395B8B"
-            BuildableName = "cartool"
-            BlueprintName = "cartool"
+            BlueprintIdentifier = "C1E7507B25834C7600395B8B"
+            BuildableName = "Final Car Pro.app"
+            BlueprintName = "Final Car Pro"
             ReferencedContainer = "container:Cartools.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C1E75066258349C200395B8B"
+            BuildableName = "CarPreview.appex"
+            BlueprintName = "CarPreview"
+            ReferencedContainer = "container:Cartools.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      debugDocumentVersioning = "YES"
+      launchAutomaticallySubstyle = "2">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C1E75023258342AC00395B8B"
-            BuildableName = "cartool"
-            BlueprintName = "cartool"
+            BlueprintIdentifier = "C1E75066258349C200395B8B"
+            BuildableName = "CarPreview.appex"
+            BlueprintName = "CarPreview"
             ReferencedContainer = "container:Cartools.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

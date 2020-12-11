@@ -1,0 +1,6 @@
+module CoreThemeDefinition {
+    // umbrella header "CoreThemeDefinition.h"
+    header "Headers/CDStructures.h"
+    
+    export *
+}

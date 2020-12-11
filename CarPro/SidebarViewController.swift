@@ -1,17 +1,17 @@
 //
-//  ViewController.swift
+//  SidebarViewController.swift
 //  Final Car Pro
 //
-//  Created by showxdxu on 12/11/20.
+//  Created by show on 1/11/21.
 //
 
 import Cocoa
+import CoreUI
 
-class ViewController: NSViewController {
-
+class SidebarViewController: NSViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -20,7 +20,4 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-
 }
-

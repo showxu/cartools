@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C1E75023258342AC00395B8B"
-               BuildableName = "cartool"
-               BlueprintName = "cartool"
+               BlueprintIdentifier = "C10B9AF525A6F93700B19334"
+               BuildableName = "CartoolKit.framework"
+               BlueprintName = "CartoolKit"
                ReferencedContainer = "container:Cartools.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,16 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C1E75023258342AC00395B8B"
-            BuildableName = "cartool"
-            BlueprintName = "cartool"
-            ReferencedContainer = "container:Cartools.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -57,16 +47,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C1E75023258342AC00395B8B"
-            BuildableName = "cartool"
-            BlueprintName = "cartool"
+            BlueprintIdentifier = "C10B9AF525A6F93700B19334"
+            BuildableName = "CartoolKit.framework"
+            BlueprintName = "CartoolKit"
             ReferencedContainer = "container:Cartools.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

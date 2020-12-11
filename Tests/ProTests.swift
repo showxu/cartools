@@ -2,13 +2,13 @@
 //  Final_Car_ProTests.swift
 //  Final Car ProTests
 //
-//  Created by showxdxu 12/11/20.
+//  Created by Xudong Xu 12/11/20.
 //
 
 import XCTest
 @testable import Final_Car_Pro
 
-class Final_Car_ProTests: XCTestCase {
+class ProTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

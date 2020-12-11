@@ -1,0 +1,16 @@
+module CoreUI {
+    // umbrella header "CoreUI.h"
+    // Here is the list of your private headers.
+    header "Headers/CUICatalog.h"
+    header "Headers/CUICommonAssetStorage.h"
+    header "Headers/CUINamedData.h"
+    header "Headers/CUINamedLookup.h"
+    header "Headers/CUINamedImage.h"
+    header "Headers/CUINamedLayerImage.h"
+    header "Headers/CUINamedLayerStack.h"
+    header "Headers/CUIRenditionKey.h"
+    header "Headers/CUIStructuredThemeStore.h"
+    header "Headers/CUIThemeRendition.h"
+    
+    export *
+}

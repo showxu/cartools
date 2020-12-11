@@ -2,12 +2,12 @@
 //  Final_Car_ProUITests.swift
 //  Final Car ProUITests
 //
-//  Created by showxdxu on 12/11/20.
+//  Created by Xudong Xu on 12/11/20.
 //
 
 import XCTest
 
-class Final_Car_ProUITests: XCTestCase {
+class ProUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
+        <capability name="Search Toolbar Item" minToolsVersion="12.0" minSystemVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,45 +676,156 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Final_Car_Pro" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+                <customObject id="QPU-VK-yxR" customClass="DocumentController" customModule="Final_Car_Pro" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
         <!--Window Controller-->
-        <scene sceneID="R2V-B0-nI4">
+        <scene sceneID="A9p-Vb-Xlf">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                <windowController storyboardIdentifier="MainWindowController" id="YqN-Kg-aC1" customClass="MainWindowController" customModule="Final_Car_Pro" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="jvB-x5-BDn">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <rect key="contentRect" x="425" y="462" width="815" height="549"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
+                        <view key="contentView" id="RyF-sC-wei">
+                            <rect key="frame" x="0.0" y="0.0" width="815" height="549"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <toolbar key="toolbar" implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="jvS-4l-fKh">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="GG9-WK-95b"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="qGf-P0-YTk"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="51p-s8-ZYc"/>
+                                <searchToolbarItem implicitItemIdentifier="31DC3417-E98A-4D2C-8DF1-A6B6E6996011" label="Search" paletteLabel="Search" visibilityPriority="1001" id="TxY-HJ-PJy">
+                                    <nil key="toolTip"/>
+                                    <searchField key="view" verticalHuggingPriority="750" textCompletion="NO" id="zzc-Wo-95q">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="21"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="eS6-9l-zIU">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </searchFieldCell>
+                                    </searchField>
+                                </searchToolbarItem>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="GG9-WK-95b"/>
+                                <toolbarItem reference="51p-s8-ZYc"/>
+                                <toolbarItem reference="51p-s8-ZYc"/>
+                                <searchToolbarItem reference="TxY-HJ-PJy"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                         <connections>
-                            <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
+                            <outlet property="delegate" destination="YqN-Kg-aC1" id="oJi-UZ-150"/>
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="Dxv-mC-sD2" kind="relationship" relationship="window.shadowedContentViewController" id="qfI-N5-mpu"/>
                     </connections>
                 </windowController>
-                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="2c2-u1-NM3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="75" y="389"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
+        <!--Split View Controller-->
+        <scene sceneID="zCc-7x-9aE">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <splitViewController id="Dxv-mC-sD2" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="f3R-7T-ZlU"/>
+                        <splitViewItem id="1wE-oC-a4S"/>
+                    </splitViewItems>
+                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="b2s-If-Ddx">
+                        <rect key="frame" x="-191" y="8" width="829" height="474"/>
                         <autoresizingMask key="autoresizingMask"/>
+                    </splitView>
+                    <connections>
+                        <segue destination="Tss-2c-LSX" kind="relationship" relationship="splitItems" id="uyW-4V-t3i"/>
+                        <segue destination="cOo-rt-Yym" kind="relationship" relationship="splitItems" id="ITf-IB-Szi"/>
+                    </connections>
+                </splitViewController>
+                <customObject id="WgZ-aB-Gnf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="1081"/>
+        </scene>
+        <!--Sidebar View Controller-->
+        <scene sceneID="CHx-MS-1pi">
+            <objects>
+                <viewController id="Tss-2c-LSX" customClass="SidebarViewController" customModule="Final_Car_Pro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="IFm-Kb-9gs">
+                        <rect key="frame" x="0.0" y="0.0" width="192" height="499"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <viewLayoutGuide key="safeArea" id="70q-CO-Xjh"/>
+                        <viewLayoutGuide key="layoutMargins" id="Vkg-bc-YFH"/>
                     </view>
                 </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="3S9-dy-v2X" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="-244" y="1762.5"/>
+        </scene>
+        <!--Rendition View Controller-->
+        <scene sceneID="UPV-Kg-cax">
+            <objects>
+                <viewController id="cOo-rt-Yym" customClass="RenditionViewController" customModule="Final_Car_Pro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="NmH-T9-eKL">
+                        <rect key="frame" x="0.0" y="0.0" width="634" height="499"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fas-7V-OSg">
+                                <rect key="frame" x="0.0" y="0.0" width="634" height="499"/>
+                                <clipView key="contentView" id="cUM-3o-TyE">
+                                    <rect key="frame" x="1" y="1" width="632" height="497"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView selectable="YES" allowsMultipleSelection="YES" id="rSl-R8-qZL">
+                                            <rect key="frame" x="0.0" y="0.0" width="632" height="497"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="HcD-MS-Ta5">
+                                                <size key="itemSize" width="50" height="50"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="ue8-I7-iMM" id="I5D-O5-xDD"/>
+                                                <outlet property="delegate" destination="ue8-I7-iMM" id="U5U-2k-mzJ"/>
+                                                <outlet property="prefetchDataSource" destination="ue8-I7-iMM" id="jg4-CK-gLb"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="XRu-ih-ibo">
+                                    <rect key="frame" x="-100" y="-100" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Mzp-qS-a7L">
+                                    <rect key="frame" x="617" y="1" width="16" height="387"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="fas-7V-OSg" firstAttribute="top" secondItem="NmH-T9-eKL" secondAttribute="top" id="GDD-3E-TiM"/>
+                            <constraint firstItem="fas-7V-OSg" firstAttribute="leading" secondItem="NmH-T9-eKL" secondAttribute="leading" id="Mf3-zm-t5S"/>
+                            <constraint firstItem="fas-7V-OSg" firstAttribute="trailing" secondItem="LCy-n4-hKn" secondAttribute="trailing" id="wxp-RF-sND"/>
+                            <constraint firstItem="fas-7V-OSg" firstAttribute="bottom" secondItem="LCy-n4-hKn" secondAttribute="bottom" id="yZL-so-soK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LCy-n4-hKn"/>
+                        <viewLayoutGuide key="layoutMargins" id="sHC-J2-pkc"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="rSl-R8-qZL" id="wxi-hZ-1Pw"/>
+                        <outlet property="viewManager" destination="ue8-I7-iMM" id="Njl-PM-3Zu"/>
+                    </connections>
+                </viewController>
+                <customObject id="Wee-qU-txC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="ue8-I7-iMM" customClass="CollectionViewManager" customModule="Final_Car_Pro" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="172" y="1762.5"/>
         </scene>
     </scenes>
 </document>

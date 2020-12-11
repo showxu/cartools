@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C1E75023258342AC00395B8B"
-               BuildableName = "cartool"
-               BlueprintName = "cartool"
+               BlueprintIdentifier = "C1E7507B25834C7600395B8B"
+               BuildableName = "Final Car Pro.app"
+               BlueprintName = "Final Car Pro"
                ReferencedContainer = "container:Cartools.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C1E7508C25834C7700395B8B"
+               BuildableName = "ProTests.xctest"
+               BlueprintName = "ProTests"
+               ReferencedContainer = "container:Cartools.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C1E7509725834C7700395B8B"
+               BuildableName = "ProUITests.xctest"
+               BlueprintName = "ProUITests"
+               ReferencedContainer = "container:Cartools.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -44,9 +64,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C1E75023258342AC00395B8B"
-            BuildableName = "cartool"
-            BlueprintName = "cartool"
+            BlueprintIdentifier = "C1E7507B25834C7600395B8B"
+            BuildableName = "Final Car Pro.app"
+            BlueprintName = "Final Car Pro"
             ReferencedContainer = "container:Cartools.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +81,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C1E75023258342AC00395B8B"
-            BuildableName = "cartool"
-            BlueprintName = "cartool"
+            BlueprintIdentifier = "C1E7507B25834C7600395B8B"
+            BuildableName = "Final Car Pro.app"
+            BlueprintName = "Final Car Pro"
             ReferencedContainer = "container:Cartools.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -1,0 +1,13 @@
+//
+//  Cartools.xcconfig
+//  Cartools
+//
+//  Created by show on 1/7/21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+SYSTEM_FRAMEWORK_SEARCH_PATHS = $(inherited) $(SYSTEM_LIBRARY_DIR)/PrivateFrameworks
+
+SWIFT_INCLUDE_PATHS = $(inherited) $(SRCROOT)/PrivateFrameworks/CoreThemeDefinition.framework  $(SRCROOT)/PrivateFrameworks/CoreUI.framework/
