@@ -584,8 +584,9 @@
 		C1E7502C258342AC00395B8B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A7JC3DY3PU;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -595,8 +596,9 @@
 		C1E7502D258342AC00395B8B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A7JC3DY3PU;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -607,8 +609,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CarPreview/CarPreview.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A7JC3DY3PU;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = CarPreview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -627,8 +630,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CarPreview/CarPreview.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A7JC3DY3PU;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = CarPreview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -652,7 +656,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Final Car Pro/Final_Car_Pro.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = A7JC3DY3PU;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/CarPro/Sources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -674,7 +678,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Final Car Pro/Final_Car_Pro.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = A7JC3DY3PU;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/CarPro/Sources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -694,7 +698,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = A7JC3DY3PU;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CarPro/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -716,7 +720,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = A7JC3DY3PU;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CarPro/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -737,7 +741,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = A7JC3DY3PU;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CarPro/UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -757,7 +761,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = A7JC3DY3PU;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CarPro/UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
