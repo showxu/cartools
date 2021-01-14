@@ -736,7 +736,7 @@
         <!--Split View Controller-->
         <scene sceneID="zCc-7x-9aE">
             <objects>
-                <splitViewController id="Dxv-mC-sD2" sceneMemberID="viewController">
+                <splitViewController id="Dxv-mC-sD2" customClass="SplitViewController" customModule="Final_Car_Pro" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="f3R-7T-ZlU"/>
                         <splitViewItem id="1wE-oC-a4S"/>

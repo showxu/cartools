@@ -2,7 +2,7 @@
 //  DocumentController.swift
 //  Cartools
 //
-//  Created by show on 1/13/21.
+//  Created by Xudong Xu on 1/13/21.
 //
 
 import Cocoa
@@ -24,7 +24,6 @@ class DocumentController: NSDocumentController {
     private func makeAccessoryView() -> NSView? {
         nil
     }
-    
 
     override func runModalOpenPanel(_ openPanel: NSOpenPanel, forTypes types: [String]?) -> Int {
         openPanel.allowedFileTypes = ["car", "app", "framework", "bundle", "plugin"]

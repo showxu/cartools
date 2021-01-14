@@ -12,11 +12,11 @@ public class LazyRendition: Rendition {
     
     private var _unslicedNSImageStore: NSImage? = nil
     
-    public var unslicedNSImage: NSImage? {
+    public var unsafeUnslicedNSImage: NSImage? {
         get {
             guard let _ = _unslicedNSImageStore else {
-    //            _unslicedNSImageStore = unsafeUnslicedImage().map { ($0, .zero) }.map(NSImage.init(cgImage:size:))
-                _unslicedNSImageStore = unsafeUnslicedImageRep()?.data().flatMap(NSImage.init(data:))
+                _unslicedNSImageStore = unsafeUnslicedImage().map { ($0, .zero) }.map(NSImage.init(cgImage:size:))
+//                _unslicedNSImageStore = unsafeUnslicedImageRep()?.data().flatMap(NSImage.init(data:))
                 return _unslicedNSImageStore
             }
             return _unslicedNSImageStore
@@ -59,5 +59,10 @@ public class Rendition {
     
     public func unsafeUnslicedImage() -> CGImage? {
         _internalRendition.unslicedImage()
+    }
+    
+    public func writeTo(_ providedURL: URL) throws {
+        let fileURL = providedURL.appendingPathComponent(name)
+        try unsafeUnslicedImageRep()?.data()?.write(to: fileURL)
     }
 }

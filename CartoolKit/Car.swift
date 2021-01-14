@@ -2,7 +2,7 @@
 //  Car.swift
 //  CartoolKit
 //
-//  Created by show on 1/8/21.
+//  Created by Xudong Xu on 1/8/21.
 //
 
 import Cocoa

@@ -12,6 +12,8 @@ import CoreUI
 
 class PreviewViewController: NSViewController, QLPreviewingController {
     
+    private var _reader: Car.Reader<LazyRendition>!
+    
     override var nibName: NSNib.Name? {
         "PreviewViewController"
     }
@@ -28,9 +30,7 @@ class PreviewViewController: NSViewController, QLPreviewingController {
         // Quick Look will display a loading spinner while the completion handler is not called.
         handler(nil)
     }
-    
-    static var reader: Car.Reader<LazyRendition>!
-    
+
     func preparePreviewOfFile(at url: URL, completionHandler handler: @escaping (Error?) -> Void) {
         // Add the supported content types to the QLSupportedContentTypes array in the Info.plist of the extension.
         
@@ -38,13 +38,11 @@ class PreviewViewController: NSViewController, QLPreviewingController {
         
         // Call the completion handler so Quick Look knows that the preview is fully loaded.
         // Quick Look will display a loading spinner while the completion handler is not called.
-        type(of: self).reader = Car.Reader.init(Car.init(uiCatalogName: "", url: url)).read { (result) in
-            
+        do {
+            try _reader = Car.Reader<LazyRendition>.init(Car.init(uiCatalogName: "", url: url))
+            try _ = _reader.read()
+        } catch {
+            handler(error)
         }
-
-        self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = .black
-        
-        handler(NSError())
     }
 }

@@ -87,13 +87,13 @@
 			<key>NSMessage</key>
 			<string>unarchive</string>
 			<key>NSPortName</key>
-			<string>CarUnarchiver</string>
+			<string>Final Car Pro</string>
+			<key>NSRequiredContext</key>
+			<dict/>
 			<key>NSSendTypes</key>
 			<array>
-				<string>public.data</string>
+				<string>com.apple.assetcatalog</string>
 			</array>
-			<key>NSUserData</key>
-			<string></string>
 		</dict>
 	</array>
 	<key>UTExportedTypeDeclarations</key>

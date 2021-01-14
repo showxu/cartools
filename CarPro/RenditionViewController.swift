@@ -2,7 +2,7 @@
 //  RenditionViewController.swift
 //  Final Car Pro
 //
-//  Created by show on 1/12/21.
+//  Created by Xudong Xu on 1/12/21.
 //
 
 import Cocoa
@@ -16,7 +16,7 @@ class RenditionViewController: NSViewController {
     
     var reader: Car.Reader<LazyRendition>! {
         didSet {
-            _read(reader)
+            perfromRead(reader)
         }
     }
 
@@ -25,8 +25,9 @@ class RenditionViewController: NSViewController {
         viewManager.collectionView = collectionView
     }
     
-    private func _read(_ reader: Car.Reader<LazyRendition>) {
-        reader.read { result in
+    private func perfromRead(_ reader: Car.Reader<LazyRendition>) {
+        reader.read { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case let .success(elements):
                 self.viewManager.dataSource = elements

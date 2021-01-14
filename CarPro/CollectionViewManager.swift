@@ -2,7 +2,7 @@
 //  CollectionViewManager.swift
 //  Final Car Pro
 //
-//  Created by show on 1/11/21.
+//  Created by Xudong Xu on 1/11/21.
 //
 
 import Cocoa
@@ -45,10 +45,6 @@ class CollectionViewManager: NSObject, NSCollectionViewDataSource, NSCollectionV
     var dataSource: [LazyRendition] = [] {
         didSet {
             DispatchQueue.main.async {
-                _ = self.dataSource.map {
-                    $0.unslicedNSImage
-                    // $0.unslicedNSImage = $0.unsafeUnslicedImageRep()?.data().flatMap(NSImage.init(data:))
-                }
                 self.collectionView.reloadData()
             }
         }
@@ -66,14 +62,14 @@ class CollectionViewManager: NSObject, NSCollectionViewDataSource, NSCollectionV
         let item = collectionView.makeItem(withIdentifier: .collectionViewItemIdentifier, for: indexPath) as! CollectionViewItem
         let element = dataSource[indexPath.item]
         item.label.stringValue = element.name
-        item.thumbnailImageView.image = element.unslicedNSImage
+        item.thumbnailImageView.image = element.unsafeUnslicedNSImage
         return item
     }
     
     func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> NSPasteboardWriting? {
         let element = dataSource[indexPath.item]
         let fileURL = URL(fileURLWithPath: "\(NSTemporaryDirectory())\(element.name)")
-        try! element.unslicedNSImage?.tiffRepresentation?.write(to: fileURL,
+        try! element.unsafeUnslicedNSImage?.tiffRepresentation?.write(to: fileURL,
                                                                 options: .atomicWrite)
         return fileURL as NSURL
     }

@@ -2,7 +2,7 @@
 //  CoreUIExt.swift
 //  CoreUIExt
 //
-//  Created by show on 1/11/21.
+//  Created by Xudong Xu on 1/11/21.
 //
 
 import Cocoa

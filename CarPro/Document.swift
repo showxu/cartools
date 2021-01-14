@@ -2,7 +2,7 @@
 //  Document.swift
 //  Cartools
 //
-//  Created by show on 1/13/21.
+//  Created by Xudong Xu on 1/13/21.
 //
 
 import Cocoa
@@ -47,7 +47,7 @@ class Document: NSDocument {
     }
     
     override func read(from url: URL, ofType typeName: String) throws {
-        reader = Car.Reader(.init(uiCatalogName: "", url: url))
+        reader = try Car.Reader(.init(uiCatalogName: "", url: url))
     }
     
     override class var autosavesInPlace: Bool {

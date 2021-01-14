@@ -2,7 +2,7 @@
 //  CarReader.swift
 //  CartoolKit
 //
-//  Created by show on 1/7/21.
+//  Created by Xudong Xu on 1/7/21.
 //
 
 import CoreThemeDefinition
@@ -15,32 +15,37 @@ extension Car {
     
         public typealias CompletionHandler = (Result<[T], Error>) -> Void
         
-        fileprivate let car: Car
+        let car: Car
         
-        public init(_ car: Car) {
+        private let _catalog: CUICatalog
+        
+        public init(_ car: Car) throws {
             self.car = car
+            self._catalog = try CUICatalog(url: car.url)
         }
         
         @discardableResult
         public func read(_ completion: CompletionHandler?) -> Self {
-            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-                guard let self = self else { return }
+            DispatchQueue.global(qos: .default).async {
                 do {
-                    let catalog = try CUICatalog(url: self.car.url)
-                    guard try
-                        !self._isPro(self.car),
-                        let count = catalog.allImageNames()?.count,
-                        count != 0,
-                        catalog.responds(to: #selector(CUICatalog.image(withName:scaleFactor:)))
-                    else {
-                        return
-                    }
-                    completion?(.success(self._readTheme(catalog)))
+                    try completion?(.success(self.read()))
                 } catch {
                     completion?(.failure(error))
                 }
             }
             return self
+        }
+        
+        public func read() throws -> [T] {
+            guard
+                try !_isPro(self.car),
+                let count = _catalog.allImageNames()?.count,
+                count != 0,
+                _catalog.responds(to: #selector(CUICatalog.image(withName:scaleFactor:)))
+            else {
+                return []
+            }
+            return _readTheme(_catalog)
         }
         
         private func _isPro(_ car: Car) throws -> Bool {
