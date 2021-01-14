@@ -6,7 +6,7 @@ ToolKit  for Compiled Asset Catalogs (.car file) written in Swift.
 
 # WIP
 
-[ ] Quick Look Preview Extension
-[ ] Command Line Tools
-[ ] Homebrew / Homebrew Cask Support
-[ ] MacPort Support
+- [ ] Quick Look Preview Extension
+- [ ] Command Line Tools
+- [ ] Homebrew / Homebrew Cask Support
+- [ ] MacPort Support
