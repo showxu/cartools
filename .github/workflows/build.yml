@@ -11,7 +11,7 @@ jobs:
       max-parallel: 2
       matrix:  
         configuration: [Debug, Release]
-        scheme: [CartoolKit]
+        scheme: [cartool, CartoolKit, CarPro, CarPreview]
         arch: [x86_64] 
         sdk: [macosx]
     steps:

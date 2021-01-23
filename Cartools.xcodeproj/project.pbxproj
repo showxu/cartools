@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C10B9B0B25A6F93700B19334 /* CartoolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10B9AF625A6F93700B19334 /* CartoolKit.framework */; };
-		C10B9B0C25A6F93700B19334 /* CartoolKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C10B9AF625A6F93700B19334 /* CartoolKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C13D2BA225B000C1004894E8 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13D2BA125B000B6004894E8 /* SplitViewController.swift */; };
 		C157BDC825A71AD800807357 /* CartoolKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C10B9AF825A6F93700B19334 /* CartoolKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C157BFC425A81B8900807357 /* CarReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157BFC325A81B8900807357 /* CarReader.swift */; };
@@ -41,7 +40,6 @@
 		C1F918E825AEEF9800E7A24F /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F918D725AEEB8900E7A24F /* DocumentController.swift */; };
 		C1F918F325AEEFF600E7A24F /* CocoaExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A4EFF25AD7587008C70E3 /* CocoaExt.swift */; };
 		C1F9191625AF10F200E7A24F /* CoreThemeDefinition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F9191525AF10F200E7A24F /* CoreThemeDefinition.framework */; };
-		C1F9191725AF10F200E7A24F /* CoreThemeDefinition.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C1F9191525AF10F200E7A24F /* CoreThemeDefinition.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C1F9192525AF1FD500E7A24F /* RenditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A4EE925AD5A57008C70E3 /* RenditionViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,17 +82,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C10B9B1025A6F93700B19334 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C10B9B0C25A6F93700B19334 /* CartoolKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C1E75022258342AC00395B8B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -112,17 +99,6 @@
 			files = (
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C1F9191825AF10F200E7A24F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C1F9191725AF10F200E7A24F /* CoreThemeDefinition.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -160,7 +136,7 @@
 		C18B621025AEB092009BF36D /* SharedPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedPreference.swift; sourceTree = "<group>"; };
 		C18D052F25A7014B006E7EB9 /* Cartools.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Cartools.xcconfig; sourceTree = "<group>"; };
 		C1AA96D725A714E5008D743F /* PrivateFrameworks.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = PrivateFrameworks.xcconfig; sourceTree = "<group>"; };
-		C1D5EEA725A70AD800EF4798 /* CoreUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreUI.framework; path = ../../../../System/Library/PrivateFrameworks/CoreUI.framework; sourceTree = "<group>"; };
+		C1D5EEA725A70AD800EF4798 /* CoreUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreUI.framework; path = /System/Library/PrivateFrameworks/CoreUI.framework; sourceTree = "<absolute>"; };
 		C1E75024258342AC00395B8B /* cartool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cartool; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E75067258349C200395B8B /* CarPreview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CarPreview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E75069258349C200395B8B /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
@@ -174,7 +150,7 @@
 		C1E750F9258351E700395B8B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C1F918BF25AEE55B00E7A24F /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		C1F918D725AEEB8900E7A24F /* DocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
-		C1F9191525AF10F200E7A24F /* CoreThemeDefinition.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreThemeDefinition.framework; path = ../../../../System/Library/PrivateFrameworks/CoreThemeDefinition.framework; sourceTree = "<group>"; };
+		C1F9191525AF10F200E7A24F /* CoreThemeDefinition.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreThemeDefinition.framework; path = /System/Library/PrivateFrameworks/CoreThemeDefinition.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,7 +367,6 @@
 				C10B9AF225A6F93700B19334 /* Sources */,
 				C10B9AF325A6F93700B19334 /* Frameworks */,
 				C10B9AF425A6F93700B19334 /* Resources */,
-				C1F9191825AF10F200E7A24F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -449,7 +424,6 @@
 				C1E7507925834C7600395B8B /* Frameworks */,
 				C1E7507A25834C7600395B8B /* Resources */,
 				C1E750D825834DE200395B8B /* Embed App Extensions */,
-				C10B9B1025A6F93700B19334 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -719,6 +693,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -752,6 +727,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -970,7 +946,6 @@
 		C1E750A025834C7700395B8B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CarPro/FinalCarPro.entitlements;
@@ -993,7 +968,6 @@
 		C1E750A125834C7700395B8B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CarPro/FinalCarPro.entitlements;
