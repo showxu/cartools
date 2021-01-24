@@ -327,9 +327,9 @@
 		C1E75068258349C200395B8B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C1F9191525AF10F200E7A24F /* CoreThemeDefinition.framework */,
-				C1D5EEA725A70AD800EF4798 /* CoreUI.framework */,
 				C1E75069258349C200395B8B /* Quartz.framework */,
+				C1D5EEA725A70AD800EF4798 /* CoreUI.framework */,
+				C1F9191525AF10F200E7A24F /* CoreThemeDefinition.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
