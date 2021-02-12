@@ -20,7 +20,7 @@ class DocumentController: NSDocumentController {
     override func openDocument(_ sender: Any?) {
         super.openDocument(sender)
     }
-    
+        
     private func makeAccessoryView() -> NSView? {
         nil
     }

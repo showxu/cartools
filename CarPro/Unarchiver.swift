@@ -10,7 +10,7 @@ import CartoolKit
 
 @objcMembers class Unarchiver: NSObject {
     
-    private var _readers: [(filerURL: URL, reader: Car.Reader<Rendition>)]!
+    private var readers: [(filerURL: URL, reader: Car.Reader<Rendition>)]!
     
     @objc public func unarchive(_ pboard: NSPasteboard!, userData: String!, error: AutoreleasingUnsafeMutablePointer<NSString?>) {
         guard
@@ -19,10 +19,10 @@ import CartoolKit
             return error.pointee = "Invalid NSPasteboard input file paths."
         }
         do {
-            _readers = try fileURLs.map {
+            readers = try fileURLs.map {
                 try ($0, Car.Reader(.init(uiCatalogName: "", url: $0)))
             }
-            try _readers.map {
+            try readers.map {
                 try (fileURL: $0.filerURL, renditions: $0.reader.read())
             }.forEach {
                 let providedURL = $0.fileURL.deletingPathExtension()

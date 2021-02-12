@@ -7,6 +7,7 @@
 
 import Cocoa
 import CoreUI
+import CoreGraphics
 
 extension CUIRenditionKey {
     
@@ -36,41 +37,59 @@ extension CUIRenditionKey {
     }
 }
 
-
 extension CUIThemeRendition {
     
-    var hasPackedAsset: Bool {
+    var isPDFRendition: Bool {
+        className == "_CUIThemePDFRendition"
+    }
+    
+    var isSVGRendition: Bool {
+        className == "_CUIThemeSVGRendition"
+    }
+    
+    var isMultisizeImageSetRendition: Bool {
+        className == "_CUIThemeMultisizeImageSetRendition"
+    }
+        
+    var isPackedAsset: Bool {
         name()?.contains("ZZPackedAsset") ?? false
     }
     
-    var strippedName: String {
-        .init((name() as NSString).deletingPathExtension.split(separator: "@").first ?? "")
-    }
-
-    func preferredName(_ name: String, scale: Int, themePresentationState: Int64) -> String {
-        typealias State = CUIRenditionKey.ThemePresentationState
-        
-        let scale = Int(scale)
-        return "\(name)\(themePresentationState != State.none.rawValue ? "_\(State(rawValue: Int(themePresentationState))!)": "")\(scale > 1 ? "\(scale).0fx" : "").png"
-    }
-    
-    func unslicedImage() -> CGImage? {
-        unslicedImage()?.takeUnretainedValue()
-    }
-    
-    func unslicedImageRep() -> NSBitmapImageRep? {
-        guard let unsliced: CGImage = unslicedImage() else {
+    func createImage() -> CGImage? {
+        if isPDFRendition {
+            // pdf
+            return createImageFromPDFRendition(withScale: scale())?.takeUnretainedValue()
+            
+        } else if isSVGRendition {
+            // svg
+            let w = Int(ceil(CGSVGDocumentGetCanvasSize(svgDocument()).width))
+            let h = Int(ceil(CGSVGDocumentGetCanvasSize(svgDocument()).height))
+            let c = CGContext(data: nil,
+                              width: w,
+                              height: h,
+                              bitsPerComponent: 8,
+                              bytesPerRow: 0,
+                              space: CGColorSpaceCreateDeviceRGB(),
+                              bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+            CGContextDrawSVGDocument(c, svgDocument())
+            return c?.makeImage()
+            
+        } else if isMultisizeImageSetRendition {
+            // AppIcon
+            // case "_CUIThemeMultisizeImageSetRendition":
             return nil
+            
+        } else {
+            // png, jpeg, linked svg, linked pdf
+            // case "_CUIInternalLinkRendition", "_CUIThemePixelRendition":
+            return unslicedImage()?.takeUnretainedValue()
         }
-        let rep = NSBitmapImageRep(cgImage: unsliced)
-        rep.size = CGSize(width: unsliced.width, height: unsliced.height)
-        return rep
     }
 }
 
 extension CUICatalog {
     
-    var totalCount: Int {
+    var allAssetCount: Int {
         _themeStore().themeStore().allAssetKeys().count
     }
     
@@ -78,16 +97,6 @@ extension CUICatalog {
         _themeStore().themeStore().allAssetKeys()
     }
 
-    func images(withName aName: String) -> [CUINamedImage] {
-         (1...3).compactMap {
-            let scaleFactor = Double($0)
-            guard let image = self.image(withName: aName, scaleFactor: scaleFactor) else {
-                return nil
-            }
-            return image.scale != scaleFactor ? nil : image
-        }
-    }
-    
     var hasRetina: Bool {
         var hasRetina = false
         for name in allImageNames() where !hasRetina {

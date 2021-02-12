@@ -11,16 +11,18 @@ class MainWindowController: NSWindowController {
     
     @IBOutlet weak var searchField: NSSearchField!
     
-    @IBAction fileprivate func enableSearchField(_ sender: AnyObject?) {
-        searchField.isEnabled = true
-    }
-    
-    @IBAction fileprivate func disableSearchField(_ sender: AnyObject?) {
-        searchField.isEnabled = false
-    }
-
     override func windowDidLoad() {
         super.windowDidLoad()
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    }
+}
+
+extension MainWindowController: NSToolbarDelegate {
+    
+    func toolbarWillAddItem(_ notification: Notification) {
+        let item = (notification.userInfo?["item"] as? NSToolbarItem)
+        if !(item?.view is NSSearchField) {
+            item?.isBordered = true
+        }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Utils.swift
+//  Errors.swift
 //  CartoolKit
 //
 //  Created by Xudong Xu on 1/8/21.

@@ -63,7 +63,7 @@
 - (BOOL)isVectorBased;
 - (const struct _renditionkeytoken *)key;
 - (id)layerReferences;
-- (id)linkingToRendition;
+- (CUIThemeRendition *)linkingToRendition;
 - (id)maskForSliceIndex:(long long)arg1;
 - (id)metrics;
 - (id)mipLevels;

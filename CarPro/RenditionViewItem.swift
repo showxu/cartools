@@ -1,5 +1,5 @@
 //
-//  CollectionViewItem.swift
+//  RenditionViewItem.swift
 //  Final Car Pro
 //
 //  Created by Xudong Xu on 1/11/21.
@@ -9,12 +9,19 @@ import Cocoa
 import Quartz
 import Combine
 
-class CollectionViewItem: NSCollectionViewItem {
+extension NSUserInterfaceItemIdentifier {
+    
+    static let renditionItem = NSUserInterfaceItemIdentifier("RenditionViewItem")
+}
+
+class RenditionViewItem: NSCollectionViewItem {
+    
+    static let nibName = NSUserInterfaceItemIdentifier.renditionItem.rawValue
     
     private struct Appearance {
-        static let border = NSColor(calibratedWhite: 0.9, alpha: 1.0)
-        static let background = NSColor(displayP3Red: 199.0/255, green: 199.0/255, blue: 203.0/255, alpha: 1)
-        static let selectedBackground = NSColor(displayP3Red: 41.0/255, green: 97.0/255, blue: 217.0/255, alpha: 1)
+        static let border = NSColor(white: 0.9, alpha: 1.0)
+        static let background = NSColor(red: 199.0/255, green: 199.0/255, blue: 203.0/255, alpha: 1)
+        static let selectedBackground = NSColor(red: 41.0/255, green: 97.0/255, blue: 217.0/255, alpha: 1)
     }
     
     @IBOutlet var boarderView: NSView! {
@@ -28,6 +35,15 @@ class CollectionViewItem: NSCollectionViewItem {
     }
     
     @IBOutlet var thumbnailImageView: NSImageView!
+    
+    @IBOutlet var vectorView: NSView! {
+        didSet {
+            vectorView.wantsLayer = true
+            vectorView.layer?.backgroundColor = NSColor.black.withAlphaComponent(0.75).cgColor
+            vectorView.layer?.cornerRadius = 5
+            vectorView.layer?.masksToBounds = true
+        }
+    }
     
     @IBOutlet var label: NSTextField!
     
@@ -46,4 +62,4 @@ class CollectionViewItem: NSCollectionViewItem {
             }
             .store(in: &disposeBag)
     }
-}
+} 

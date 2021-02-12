@@ -7,62 +7,103 @@
 
 import Cocoa
 import CoreUI
+import UniformTypeIdentifiers
+import CoreGraphics
 
 public class LazyRendition: Rendition {
     
-    private var _unslicedNSImageStore: NSImage? = nil
+    private var unsafeCreatedNSImageStore: NSImage? = nil
     
-    public var unsafeUnslicedNSImage: NSImage? {
+    public var unsafeCreatedNSImage: NSImage? {
         get {
-            guard let _ = _unslicedNSImageStore else {
-                _unslicedNSImageStore = unsafeUnslicedImage().map { ($0, .zero) }.map(NSImage.init(cgImage:size:))
-//                _unslicedNSImageStore = unsafeUnslicedImageRep()?.data().flatMap(NSImage.init(data:))
-                return _unslicedNSImageStore
+            if unsafeCreatedNSImageStore == nil {
+                unsafeCreatedNSImageStore = unsafeCreateImage()
+                    .map { ($0, .zero) }
+                    .map(NSImage.init(cgImage:size:))
             }
-            return _unslicedNSImageStore
+            return unsafeCreatedNSImageStore
         } set {
-            _unslicedNSImageStore = newValue
+            unsafeCreatedNSImageStore = newValue
         }
     }
 }
 
 public class Rendition {
-    
+
     public var name: String {
-        _internalRendition.name()
+        internalRendition.name()
     }
         
     public var internalName: String {
-        _internalRendition.internalName
+        internalRendition.internalName
+    }
+    
+    public var renditionName: String {
+        internalRendition.className.replacingOccurrences(of: "_", with: "")
     }
     
     public var scale: Int {
-        Int(_internalRendition.scale())
+        Int(internalRendition.scale())
     }
     
-    public internal(set) var unslicedImage: CGImage?
-        
-    internal var _internalRendition: CUIThemeRendition
+    public var isVector: Bool {
+        internalRendition.isVectorBased() && !internalRendition.isInternalLink()
+    }
+    
+    public var isPDF: Bool {
+        internalRendition.isPDFRendition
+    }
+    
+    public var isLinkingToPDF: Bool {
+        internalRendition.isInternalLink() && internalRendition.linkingTo().isPDFRendition
+    }
+    
+    public var isSVG: Bool {
+        internalRendition.isSVGRendition
+    }
+    
+    public var isLinkingToSVG: Bool {
+        internalRendition.isInternalLink() && internalRendition.linkingTo().isSVGRendition
+    }
+    
+    internal var internalRendition: CUIThemeRendition
     
     required init(_ rendition: CUIThemeRendition) {
-        _internalRendition = rendition
+        internalRendition = rendition
     }
     
-    public func unsafeUnslicedImageRep() -> NSBitmapImageRep? {
-        guard let unsliced: CGImage = unsafeUnslicedImage() else {
+    public func unsafeCreateImage() -> CGImage? {
+        let snapshot = internalRendition.createImage()
+        return snapshot
+    }
+    
+    public func unsafeCreateImageRep() -> NSBitmapImageRep? {
+        guard let created: CGImage = unsafeCreateImage() else {
             return nil
         }
-        let rep = NSBitmapImageRep(cgImage: unsliced)
-        rep.size = CGSize(width: unsliced.width, height: unsliced.height)
+        let rep = NSBitmapImageRep(cgImage: created)
+        rep.size = CGSize(width: created.width, height: created.height)
         return rep
     }
     
-    public func unsafeUnslicedImage() -> CGImage? {
-        _internalRendition.unslicedImage()
-    }
-    
-    public func writeTo(_ providedURL: URL) throws {
-        let fileURL = providedURL.appendingPathComponent(name)
-        try unsafeUnslicedImageRep()?.data()?.write(to: fileURL)
+    @discardableResult
+    public func writeTo(_ providedURL: URL, options: Data.WritingOptions = [.atomicWrite]) throws -> URL {
+        var fileURL = providedURL.appendingPathComponent(name)
+        
+        if isSVG {
+            CGSVGDocumentWriteToURL(internalRendition.svgDocument(), fileURL as CFURL, nil)
+
+        } else if isPDF {
+            try internalRendition.data().map {
+                try $0.write(to: fileURL, options: options)
+            }
+            
+        } else {
+            fileURL.appendPathExtension(for: .png)
+            try unsafeCreateImageRep()?.data().map {
+                try $0.write(to: fileURL, options: options)
+            }
+        }
+        return fileURL
     }
 }

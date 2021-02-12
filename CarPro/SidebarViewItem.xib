@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="RenditionViewItem" customModule="Final_Car_Pro" customModuleProvider="target"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <collectionViewItem id="iVZ-Hy-UA8" customClass="SidebarViewItem" customModule="Final_Car_Pro" customModuleProvider="target">
+            <connections>
+                <outlet property="iconView" destination="NFJ-Pt-hbP" id="TpK-yy-b0S"/>
+                <outlet property="label" destination="cpX-fF-4cW" id="htR-23-9mg"/>
+                <outlet property="view" destination="K9R-ft-jJU" id="uDs-M8-ne7"/>
+            </connections>
+            <point key="canvasLocation" x="189" y="2213"/>
+        </collectionViewItem>
+        <view wantsLayer="YES" id="K9R-ft-jJU">
+            <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="JmA-k3-OIN">
+                    <rect key="frame" x="10" y="0.0" width="150" height="50"/>
+                    <subviews>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TlM-ec-Ryp">
+                            <rect key="frame" x="8" y="0.0" width="134" height="50"/>
+                            <subviews>
+                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NFJ-Pt-hbP">
+                                    <rect key="frame" x="0.0" y="10" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="FBs-RS-mP7"/>
+                                        <constraint firstAttribute="width" constant="30" id="bIa-4k-rPL"/>
+                                    </constraints>
+                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="8pb-aL-wVu"/>
+                                </imageView>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cpX-fF-4cW">
+                                    <rect key="frame" x="36" y="17" width="100" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Label" id="OWV-dO-yPr">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="TlM-ec-Ryp" secondAttribute="bottom" id="Ax5-5D-7f4"/>
+                        <constraint firstItem="TlM-ec-Ryp" firstAttribute="leading" secondItem="JmA-k3-OIN" secondAttribute="leading" constant="8" id="HXd-HQ-en3"/>
+                        <constraint firstItem="TlM-ec-Ryp" firstAttribute="top" secondItem="JmA-k3-OIN" secondAttribute="top" id="MKk-qo-wKX"/>
+                        <constraint firstAttribute="trailing" secondItem="TlM-ec-Ryp" secondAttribute="trailing" constant="8" id="zH1-Qg-EKh"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="JmA-k3-OIN" firstAttribute="top" secondItem="K9R-ft-jJU" secondAttribute="top" id="N9B-0u-3pN"/>
+                <constraint firstItem="JmA-k3-OIN" firstAttribute="leading" secondItem="K9R-ft-jJU" secondAttribute="leading" constant="10" id="lNV-Hn-udo"/>
+                <constraint firstAttribute="trailing" secondItem="JmA-k3-OIN" secondAttribute="trailing" constant="10" id="lhg-Wi-177"/>
+                <constraint firstAttribute="bottom" secondItem="JmA-k3-OIN" secondAttribute="bottom" id="yAX-rj-fxo"/>
+            </constraints>
+            <point key="canvasLocation" x="-560" y="60"/>
+        </view>
+    </objects>
+</document>

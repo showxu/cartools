@@ -2,7 +2,7 @@
 //  RenditionViewController.swift
 //  Final Car Pro
 //
-//  Created by Xudong Xu on 1/12/21.
+//  Created by Xudong Xu on 2/11/21.
 //
 
 import Cocoa
@@ -10,30 +10,33 @@ import CartoolKit
 
 class RenditionViewController: NSViewController {
     
-    @IBOutlet var collectionView: NSCollectionView!
-    
-    @IBOutlet var viewManager: CollectionViewManager!
-    
-    var reader: Car.Reader<LazyRendition>! {
+    @IBOutlet var decorateView: NSView! {
         didSet {
-            perfromRead(reader)
+            decorateView.wantsLayer = true
+            decorateView.layer?.backgroundColor = .white
+            decorateView.layer?.cornerRadius = 8
+            decorateView.layer?.masksToBounds = true
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewManager.collectionView = collectionView
-    }
     
-    private func perfromRead(_ reader: Car.Reader<LazyRendition>) {
-        reader.read { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case let .success(elements):
-                self.viewManager.dataSource = elements
-            case .failure(_):
-                break
-            }
+    @IBOutlet var renditionView: NSImageView!
+    @IBOutlet var nameField: NSTextField!
+    
+    @IBOutlet var renditionField: NSTextField!
+    @IBOutlet var scaleField: NSTextField!
+}
+
+extension RenditionViewController {
+    
+    var rendition: LazyRendition! {
+        set {
+            _ = self.view
+            renditionView.image = newValue?.unsafeCreatedNSImage
+            nameField.stringValue = newValue?.name ?? ""
+            renditionField.stringValue = newValue?.renditionName ?? ""
+            scaleField.stringValue = newValue == nil ? "" : "\(newValue!.scale)"
+        } get {
+            return nil
         }
     }
 }

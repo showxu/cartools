@@ -5,19 +5,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="CollectionViewItem" customModule="Final_Car_Pro" customModuleProvider="target"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="RenditionViewItem" customModule="Final_Car_Pro" customModuleProvider="target"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <collectionViewItem id="iVZ-Hy-UA8" customClass="CollectionViewItem" customModule="Final_Car_Pro" customModuleProvider="target">
+        <collectionViewItem id="iVZ-Hy-UA8" customClass="RenditionViewItem" customModule="Final_Car_Pro" customModuleProvider="target">
             <connections>
                 <outlet property="boarderView" destination="7m6-En-iPj" id="ijt-nT-3gf"/>
                 <outlet property="label" destination="kQb-my-5nq" id="4Jo-Wd-UOv"/>
                 <outlet property="thumbnailImageView" destination="SO3-QY-Mhk" id="PCk-MH-H86"/>
+                <outlet property="vectorView" destination="A8p-7l-eJo" id="Ifs-mE-vai"/>
                 <outlet property="view" destination="K9R-ft-jJU" id="uDs-M8-ne7"/>
             </connections>
             <point key="canvasLocation" x="189" y="2213"/>
         </collectionViewItem>
-        <view id="K9R-ft-jJU">
+        <view wantsLayer="YES" id="K9R-ft-jJU">
             <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
@@ -27,6 +28,36 @@
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="7m6-En-iPj">
                             <rect key="frame" x="0.0" y="42" width="150" height="148"/>
                             <subviews>
+                                <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A8p-7l-eJo">
+                                    <rect key="frame" x="-5" y="130" width="55" height="23"/>
+                                    <subviews>
+                                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="XIP-m9-Vde">
+                                            <rect key="frame" x="8" y="3" width="44" height="12"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wg4-2R-ypY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="12"/>
+                                                    <buttonCell key="cell" type="bevel" title="Vector" bezelStyle="rounded" image="square.3.stack.3d.middle.fill" catalog="system" imagePosition="leading" alignment="center" imageScaling="proportionallyDown" inset="2" id="yAP-Z7-ujS">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system" size="9"/>
+                                                    </buttonCell>
+                                                    <color key="contentTintColor" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wg4-2R-ypY" firstAttribute="leading" secondItem="XIP-m9-Vde" secondAttribute="leading" id="E1b-eO-haY"/>
+                                                <constraint firstAttribute="bottom" secondItem="wg4-2R-ypY" secondAttribute="bottom" id="EZc-e1-5KE"/>
+                                                <constraint firstAttribute="trailing" secondItem="wg4-2R-ypY" secondAttribute="trailing" id="j37-xV-U0n"/>
+                                                <constraint firstItem="wg4-2R-ypY" firstAttribute="top" secondItem="XIP-m9-Vde" secondAttribute="top" id="u2O-DM-ttX"/>
+                                            </constraints>
+                                        </customView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="XIP-m9-Vde" firstAttribute="top" secondItem="A8p-7l-eJo" secondAttribute="top" constant="8" id="7Oj-ot-3yU"/>
+                                        <constraint firstItem="XIP-m9-Vde" firstAttribute="leading" secondItem="A8p-7l-eJo" secondAttribute="leading" constant="8" id="BeH-F5-K5m"/>
+                                        <constraint firstAttribute="bottom" secondItem="XIP-m9-Vde" secondAttribute="bottom" constant="3" id="jSZ-Nv-drR"/>
+                                        <constraint firstAttribute="trailing" secondItem="XIP-m9-Vde" secondAttribute="trailing" constant="3" id="qAE-Pp-vOt"/>
+                                    </constraints>
+                                </customView>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SO3-QY-Mhk">
                                     <rect key="frame" x="10" y="10" width="130" height="128"/>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Sae-gU-QJx"/>
@@ -37,6 +68,8 @@
                                 <constraint firstItem="SO3-QY-Mhk" firstAttribute="top" secondItem="7m6-En-iPj" secondAttribute="top" constant="10" id="XMD-KO-iKb"/>
                                 <constraint firstItem="SO3-QY-Mhk" firstAttribute="leading" secondItem="7m6-En-iPj" secondAttribute="leading" constant="10" id="cfU-gi-VSG"/>
                                 <constraint firstAttribute="bottom" secondItem="SO3-QY-Mhk" secondAttribute="bottom" constant="10" id="fcr-Q9-3lO"/>
+                                <constraint firstItem="A8p-7l-eJo" firstAttribute="top" secondItem="7m6-En-iPj" secondAttribute="top" constant="-5" id="pqF-sU-Mrz"/>
+                                <constraint firstItem="A8p-7l-eJo" firstAttribute="leading" secondItem="7m6-En-iPj" secondAttribute="leading" constant="-5" id="t2v-UI-QwL"/>
                             </constraints>
                         </customView>
                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="kQb-my-5nq">
@@ -75,4 +108,7 @@
             <point key="canvasLocation" x="-264" y="372"/>
         </view>
     </objects>
+    <resources>
+        <image name="square.3.stack.3d.middle.fill" catalog="system" width="16" height="17"/>
+    </resources>
 </document>
