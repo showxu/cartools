@@ -45,7 +45,7 @@ class MainPageViewController: NSSplitViewController {
         dp0.didSelectItemsAtIndexPaths = { [weak self] _, indexPaths, dataItems in
             self?.interactor.renditionPredicate.value = dataItems.first?.label ?? ""
         }
-        dp0.dataSource = SidebarCategory.rendition
+        dp0.dataSource = SidebarCategory.default
         sidebar.dataProvider = dp0
 
         let dp1 = CollectionViewDataProvider<RenditionViewItem, LazyRendition>(.renditionItem, renditionCollection.collectionView)

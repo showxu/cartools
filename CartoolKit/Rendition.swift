@@ -88,6 +88,9 @@ public class Rendition {
     
     @discardableResult
     public func writeTo(_ providedURL: URL, options: Data.WritingOptions = [.atomicWrite]) throws -> URL {
+        if !FileManager.default.fileExists(atPath: providedURL.path) {
+            try FileManager.default.createDirectory(at: providedURL, withIntermediateDirectories: true, attributes: nil)
+        }
         var fileURL = providedURL.appendingPathComponent(name)
         
         if isSVG {
@@ -99,7 +102,9 @@ public class Rendition {
             }
             
         } else {
-            fileURL.appendPathExtension(for: .png)
+            if fileURL.pathExtension != UTType.png.preferredFilenameExtension {
+                fileURL.appendPathExtension(for: .png)
+            }
             try unsafeCreateImageRep()?.data().map {
                 try $0.write(to: fileURL, options: options)
             }

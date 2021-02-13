@@ -15,7 +15,7 @@ struct SidebarCategory: Codable {
 
 extension SidebarCategory {
     
-    static let rendition = [
+    static let `default` = [
         (name: "All", symbol: "square.grid.2x2", label: ""),
         (name: "Pixel", symbol: "photo.on.rectangle.angled", label: "CUIThemePixelRendition"),
         (name: "Internal Link", symbol: "link.circle", label: "CUIInternalLinkRendition"),

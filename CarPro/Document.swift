@@ -39,8 +39,8 @@ class Document: NSDocument {
         reader = try Reader(.init(url))
     }
     
-    override func save(_ sender: Any?) {
-        try! reader.read().forEach { try $0.writeTo(URL.init(fileURLWithPath: "/Users/xudongxu/Desktop/a.nosync")) }
+    override func writeSafely(to url: URL, ofType typeName: String, for saveOperation: NSDocument.SaveOperationType) throws {
+        try reader.read().forEach { try $0.writeTo(url) }
     }
     
     override class var autosavesInPlace: Bool {
