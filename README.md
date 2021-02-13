@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/0xxd0/swift-cartools/master/static/media/AppIcon.png" alt="swift-cartools" title="swift-cartools" width="300"/>
+<img src="https://raw.githubusercontent.com/0xxd0/swift-cartools/master/static/media/AppIcon.png" alt="swift-cartools" title="swift-cartools" width="256"/>
 </p>
 
 **swift-cartools** is a series of reverse tools for Compiled Asset Catalogs (.car file) written in pure Swift.
@@ -19,10 +19,23 @@
 
 ## macOS App Previews and Screenshots
 
+<p align="leading">
+<img src="https://raw.githubusercontent.com/0xxd0/swift-cartools/master/static/media/feature_vector.png" alt="Final Car Pro" title="Final Car Pro" width="500"/>
+</p>
+
 **Final Car Pro** is a macOS Application which give you the ability to browse, classify, filter renditions in compiled asset catalog and export resource files.
 
-<!-- ![Rendition Filter](https://raw.githubusercontent.com/0xxd0/swift-cartools/master/static/media/feature_filter.png)
-![Vector Annotation](https://raw.githubusercontent.com/0xxd0/swift-cartools/master/static/media/feature_vector.png) -->
+### Features 
+
+- [x] Document based car file browser.
+- [x] Filter renditions by rendition type. 
+- [x] Search renditions by file name and rendition name. 
+- [x] Group renditions by rendition name for exported resources.
+- [x] Drag to export.
+- [x] Vector resource annotation.
+- [x] SVG resource display and export.
+- [x] PDF resource display and export.
+- [ ] Dark mode support.
 
 ### Install 
 
