@@ -31,12 +31,13 @@ class MainPageInteractor {
     }
 
     private func combine() {
-        func builder<Element, P: StringProtocol>(_ keyPath: KeyPath<Element, P>) -> (P) -> (Element) -> Bool {
+        func builder<Element, P: StringProtocol>(_ keyPath: KeyPath<Element, P>...) -> (P) -> (Element) -> Bool {
             return { p in
                 return { e in
-                    let v = e[keyPath: keyPath]
                     guard !p.isEmpty else { return true }
-                    return v.contains(p)
+                    return keyPath
+                        .map { e[keyPath: $0] }
+                        .reduce(false, { $0 || $1.contains(p) })
                 }
             }
         }
@@ -45,7 +46,7 @@ class MainPageInteractor {
             .map { [weak self] newValue in
                 guard let self = self else { return [] }
                 return newValue
-                    .filter(builder(\.fileName)(self.namePredicate.value))
+                    .filter(builder(\.fileName, \.renditionName)(self.namePredicate.value))
                     .filter(builder(\.renditionClass)(self.renditionClassPredicate.value))
             }
             .subscribe(filtered)
@@ -55,7 +56,7 @@ class MainPageInteractor {
             .sink { [weak self] name, rendition in
                 guard let self = self else { return }
                 self.filtered.value = self.subject.value
-                    .filter(builder(\.fileName)(name))
+                    .filter(builder(\.fileName, \.renditionName)(name))
                     .filter(builder(\.renditionClass)(rendition))
             }
             .store(in: &disposeBag)

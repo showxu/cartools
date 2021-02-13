@@ -28,6 +28,10 @@
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="7m6-En-iPj">
                             <rect key="frame" x="0.0" y="42" width="150" height="148"/>
                             <subviews>
+                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SO3-QY-Mhk">
+                                    <rect key="frame" x="10" y="10" width="130" height="128"/>
+                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Sae-gU-QJx"/>
+                                </imageView>
                                 <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A8p-7l-eJo">
                                     <rect key="frame" x="-5" y="130" width="55" height="23"/>
                                     <subviews>
@@ -38,7 +42,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="12"/>
                                                     <buttonCell key="cell" type="bevel" title="Vector" bezelStyle="rounded" image="square.3.stack.3d.middle.fill" catalog="system" imagePosition="leading" alignment="center" imageScaling="proportionallyDown" inset="2" id="yAP-Z7-ujS">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="system" size="9"/>
+                                                        <font key="font" metaFont="miniSystem"/>
                                                     </buttonCell>
                                                     <color key="contentTintColor" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
                                                 </button>
@@ -58,10 +62,6 @@
                                         <constraint firstAttribute="trailing" secondItem="XIP-m9-Vde" secondAttribute="trailing" constant="3" id="qAE-Pp-vOt"/>
                                     </constraints>
                                 </customView>
-                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SO3-QY-Mhk">
-                                    <rect key="frame" x="10" y="10" width="130" height="128"/>
-                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Sae-gU-QJx"/>
-                                </imageView>
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="SO3-QY-Mhk" secondAttribute="trailing" constant="10" id="V0e-CE-AhV"/>
