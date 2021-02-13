@@ -16,7 +16,7 @@
 
 ## macOS App Previews and Screenshots
 
-<p align="leading">
+<p align="center">
 <img src="https://raw.githubusercontent.com/0xxd0/swift-cartools/master/static/media/AppHero.png" alt="Final Car Pro" title="Final Car Pro" width="440"/>
 </p>
 
