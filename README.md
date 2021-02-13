@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/0xxd0/swift-cartools/master/static/media/AppIcon.png)" alt="swift-cartools" title="swift-cartools" width="300"/>
+<img src="https://raw.githubusercontent.com/0xxd0/swift-cartools/master/static/media/AppIcon.png" alt="swift-cartools" title="swift-cartools" width="300"/>
 </p>
 
 **swift-cartools** is a series of reverse tools (Command Line Tools, macOS Application, QuickLook Preview Extension, Framework) for Compiled Asset Catalogs (.car file) written in pure Swift.
