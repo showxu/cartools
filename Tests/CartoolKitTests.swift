@@ -20,7 +20,7 @@ class CartoolTests: XCTestCase {
 
     func testCarFileSynchronizedReading() throws {
         let providedURL = URL(string: "file:///Applications/Xcode.app/Contents/Resources/Assets.car")!
-        let renditions = try Car.Reader<LazyRendition>(.init(uiCatalogName: "Assets", url: providedURL)).read()
+        let renditions = try Reader<LazyRendition>(.init(providedURL)).read()
         XCTAssert(renditions.count > 0)
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -31,37 +31,37 @@ class CartoolTests: XCTestCase {
         measure {
             // Put the code you want to measure the time of here.
             let providedURL = URL(string: "file:///Applications/Xcode.app/Contents/Resources/Assets.car")!
-            let _ = try! Car.Reader<LazyRendition>(.init(uiCatalogName: "Assets", url: providedURL)).read()
+            let _ = try! Reader<LazyRendition>(.init(providedURL)).read()
         }
     }
     
-    func testUnsafeUnslicedImagePerformance() throws {
+    func testUnsafeCreatImagePerformance() throws {
         // This is a performance test case of UnsafeUnslicedImage.
         let providedURL = URL(string: "file:///Applications/Xcode.app/Contents/Resources/Assets.car")!
-        let renditions = try! Car.Reader<LazyRendition>(.init(uiCatalogName: "Assets", url: providedURL)).read()
+        let renditions = try! Reader<LazyRendition>(.init(providedURL)).read()
         measure {
             // Put the code you want to measure the time of here.
-            _ = renditions.map { $0.unsafeUnslicedImage() }
+            _ = renditions.map { $0.unsafeCreateImage() }
         }
     }
     
-    func testUnsafeUnslicedImageRepPerformance() throws {
+    func testUnsafeCreatImageRepPerformance() throws {
         // This is a performance test case of UnsafeUnslicedImageRep.
         let providedURL = URL(string: "file:///Applications/Xcode.app/Contents/Resources/Assets.car")!
-        let renditions = try! Car.Reader<LazyRendition>(.init(uiCatalogName: "Assets", url: providedURL)).read()
+        let renditions = try! Reader<LazyRendition>(.init(providedURL)).read()
         measure {
             // Put the code you want to measure the time of here.
-            _ = renditions.map { $0.unsafeUnslicedImageRep() }
+            _ = renditions.map { $0.unsafeCreateImageRep() }
         }
     }
     
-    func testUnsafeUnslicedNSImagePerformance() throws {
+    func testUnsafeCreatedNSImagePerformance() throws {
         // This is a performance test case of UnsafeUnslicedNSImage.
         let providedURL = URL(string: "file:///Applications/Xcode.app/Contents/Resources/Assets.car")!
-        let renditions = try! Car.Reader<LazyRendition>(.init(uiCatalogName: "Assets", url: providedURL)).read()
+        let renditions = try! Reader<LazyRendition>(.init(providedURL)).read()
         measure {
             // Put the code you want to measure the time of here.
-            _ = renditions.map { $0.unsafeUnslicedNSImage }
+            _ = renditions.map { $0.unsafeCreatedNSImage }
         }
     }
 }

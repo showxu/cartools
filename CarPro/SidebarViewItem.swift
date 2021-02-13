@@ -21,15 +21,6 @@ class SidebarViewItem: NSCollectionViewItem {
     private struct Appearance {
     }
     
-    @IBOutlet var backgroundView: NSView! {
-        didSet {
-            backgroundView.wantsLayer = true
-            backgroundView.layer?.backgroundColor = NSColor.systemBlue.cgColor
-            backgroundView.layer?.cornerRadius = 5
-            backgroundView.layer?.masksToBounds = true
-        }
-    }
-    
     @IBOutlet var iconView: NSImageView!
     
     @IBOutlet var label: NSTextField!
@@ -39,6 +30,8 @@ class SidebarViewItem: NSCollectionViewItem {
     override func viewDidLoad() {
         super.viewDidLoad()
         combine()
+        view.cornerRadius = 5
+        view.masksToBounds = true
     }
     
     private func combine() {
@@ -47,7 +40,7 @@ class SidebarViewItem: NSCollectionViewItem {
             .sink { [weak self] newValue in
                 self?.iconView?.contentTintColor = newValue ? NSColor.white : NSColor.systemBlue
                 self?.label.textColor = newValue ? NSColor.white : NSColor.labelColor
-                self?.backgroundView.isHidden = !newValue
+                self?.view.backgroundColor = !newValue ? .clear : .systemBlue
             }
             .store(in: &disposeBag)
     }

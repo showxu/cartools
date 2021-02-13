@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2727EF3725D6FDB80064380C /* SidebarCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2727EF3625D6FDB80064380C /* SidebarCategory.swift */; };
+		2727EFA625D7B0840064380C /* CartoolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10B9AF625A6F93700B19334 /* CartoolKit.framework */; };
 		27308B8925D59459008494FA /* CoreSVG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308B8825D59459008494FA /* CoreSVG.swift */; };
 		27806C8525D5042B0007A62B /* RenditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27806C8425D5042B0007A62B /* RenditionViewController.swift */; };
 		27A52C0625D6A670004DDAAB /* MainPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A52C0525D6A670004DDAAB /* MainPageInteractor.swift */; };
@@ -51,6 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2727EF4625D7A8480064380C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1E7501C258342AB00395B8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C10B9AF525A6F93700B19334;
+			remoteInfo = CartoolKit;
+		};
 		C10B9B0925A6F93700B19334 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C1E7501C258342AB00395B8B /* Project object */;
@@ -71,13 +79,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = C1E7507B25834C7600395B8B;
 			remoteInfo = "Final Car Pro";
-		};
-		C1F9192E25AF1FF100E7A24F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C1E7501C258342AB00395B8B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C10B9AF525A6F93700B19334;
-			remoteInfo = CartoolKit;
 		};
 		C1F9193025AF1FF300E7A24F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -181,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2727EFA625D7B0840064380C /* CartoolKit.framework in Frameworks */,
 				C1E750342583432100395B8B /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,7 +427,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C1F9192F25AF1FF100E7A24F /* PBXTargetDependency */,
+				2727EF4725D7A8480064380C /* PBXTargetDependency */,
 			);
 			name = cartool;
 			packageProductDependencies = (
@@ -686,6 +688,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2727EF4725D7A8480064380C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C10B9AF525A6F93700B19334 /* CartoolKit */;
+			targetProxy = 2727EF4625D7A8480064380C /* PBXContainerItemProxy */;
+		};
 		C10B9B0A25A6F93700B19334 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C10B9AF525A6F93700B19334 /* CartoolKit */;
@@ -700,11 +707,6 @@
 			isa = PBXTargetDependency;
 			target = C1E7507B25834C7600395B8B /* Final Car Pro */;
 			targetProxy = C1E7509925834C7700395B8B /* PBXContainerItemProxy */;
-		};
-		C1F9192F25AF1FF100E7A24F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C10B9AF525A6F93700B19334 /* CartoolKit */;
-			targetProxy = C1F9192E25AF1FF100E7A24F /* PBXContainerItemProxy */;
 		};
 		C1F9193125AF1FF300E7A24F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -738,7 +740,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -759,6 +761,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.showxdxu.dt.CartoolKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -772,7 +775,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -793,6 +796,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.showxdxu.dt.CartoolKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -917,10 +921,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -929,10 +934,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -942,7 +948,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PreviewAppex/CarPreview.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -957,6 +963,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.showxdxu.dt.FinalCarPro.CarPreview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -967,7 +974,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PreviewAppex/CarPreview.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -982,6 +989,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.showxdxu.dt.FinalCarPro.CarPreview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -994,10 +1002,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CarPro/FinalCarPro.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
-				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/CarPro/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1005,6 +1012,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.showxdxu.dt.FinalCarPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -1016,7 +1024,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CarPro/FinalCarPro.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1027,6 +1035,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.showxdxu.dt.FinalCarPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1036,7 +1045,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -1047,6 +1056,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.showxdxu.dt.FinalCarProTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Final Car Pro.app/Contents/MacOS/Final Car Pro";
 			};
@@ -1057,7 +1067,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -1068,6 +1078,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.showxdxu.dt.FinalCarProTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Final Car Pro.app/Contents/MacOS/Final Car Pro";
 			};
@@ -1077,7 +1088,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UITests/Info.plist;
@@ -1088,6 +1099,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.showxdxu.dt.FinalCarProUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = "Final Car Pro";
 			};
@@ -1097,7 +1109,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UITests/Info.plist;
@@ -1108,6 +1120,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.showxdxu.dt.FinalCarProUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = "Final Car Pro";
 			};

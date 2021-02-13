@@ -10,7 +10,7 @@ import CartoolKit
 
 class Document: NSDocument {
 
-    private var reader: Car.Reader<LazyRendition>!
+    private var reader: Reader<LazyRendition>!
  
     override func windowControllerDidLoadNib(_ aController: NSWindowController) {
         super.windowControllerDidLoadNib(aController)
@@ -36,7 +36,7 @@ class Document: NSDocument {
     }
     
     override func read(from url: URL, ofType typeName: String) throws {
-        reader = try Car.Reader(.init(uiCatalogName: "", url: url))
+        reader = try Reader(.init(url))
     }
     
     override func save(_ sender: Any?) {

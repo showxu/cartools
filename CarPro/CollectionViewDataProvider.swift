@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class CollectionViewDataProvider<ViewItem: NSCollectionViewItem, DataItem>: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSource {
+class CollectionViewDataProvider<ViewItem: NSCollectionViewItem, DataItem>: NSObject, NSCollectionViewDelegate, NSCollectionViewDataSource, NSTableViewDataSource {
     
     var userInfo: [String: Any] = [:]
     

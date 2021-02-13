@@ -9,15 +9,22 @@ import Cocoa
 
 class SidebarViewController: NSViewController {
     
+    private struct Layout {
+        static let height: CGFloat = 28
+        static let minimumInteritemSpacing: CGFloat = 0
+        static let minimumLineSpacing: CGFloat = 0
+        static let sectionInset: NSEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 10)
+    }
+    
     @IBOutlet var collectionView: NSCollectionView! {
         didSet {
             let nib = NSNib(nibNamed: SidebarViewItem.nibName, bundle: nil)
             collectionView.register(nib, forItemWithIdentifier: .sidebarItem)
             collectionView.collectionViewLayout = SidebarLayout(
-                height: 28,
-                minimumInteritemSpacing: 0,
-                minimumLineSpacing: 0,
-                sectionInset: .init())
+                height: Layout.height,
+                minimumInteritemSpacing: Layout.minimumInteritemSpacing,
+                minimumLineSpacing: Layout.minimumLineSpacing,
+                sectionInset: Layout.sectionInset)
         }
     }
     
@@ -30,6 +37,5 @@ class SidebarViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 }

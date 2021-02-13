@@ -9,7 +9,7 @@ import Cocoa
 
 class RenditionCollectionViewController: NSViewController {
     
-    fileprivate struct Layout {
+    private struct Layout {
         static let width: CGFloat = 100
         static let height: CGFloat = 120
         static let minimumInteritemSpacing: CGFloat = 20
@@ -34,5 +34,9 @@ class RenditionCollectionViewController: NSViewController {
             collectionView.dataSource = dataProvider
             collectionView.delegate = dataProvider
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 }

@@ -94,7 +94,7 @@ public class Rendition {
             CGSVGDocumentWriteToURL(internalRendition.svgDocument(), fileURL as CFURL, nil)
 
         } else if isPDF {
-            try internalRendition.data().map {
+            try internalRendition.srcData.map {
                 try $0.write(to: fileURL, options: options)
             }
             

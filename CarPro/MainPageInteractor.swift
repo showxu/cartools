@@ -9,27 +9,6 @@ import Cocoa
 import Combine
 import CartoolKit
 
-extension Array {
-    
-    fileprivate func filter<T>(
-        _ keyPath: KeyPath<Element, T>,
-        _ predicate: T,
-        _ isInclude: (T, T) throws -> Bool) rethrows -> [Element] {
-        return try filter {
-            try isInclude($0[keyPath: keyPath], predicate)
-        }
-    }
-    
-    fileprivate func filter<T>(
-        _ keyPath: KeyPath<Element, T>,
-        _ predicate: T,
-        _ isInclude: (T) throws -> (T) throws -> Bool) rethrows -> [Element] {
-        return try filter {
-            try isInclude($0[keyPath: keyPath])(predicate)
-        }
-    }
-}
-
 class MainPageInteractor {
 
     let filtered: CurrentValueSubject<[LazyRendition], Error> = .init([])
@@ -44,15 +23,15 @@ class MainPageInteractor {
     
     private(set) var disposeBag: Set<AnyCancellable> = .init()
     
-    let reader: Car.Reader<LazyRendition>
+    let reader: Reader<LazyRendition>
     
-    init(reader: Car.Reader<LazyRendition>) {
+    init(reader: Reader<LazyRendition>) {
         self.reader = reader
         combine()
     }
 
     private func combine() {
-        func filterBuilder<Element, P: StringProtocol>(_ keyPath: KeyPath<Element, P>) -> (P) -> (Element) -> Bool {
+        func builder<Element, P: StringProtocol>(_ keyPath: KeyPath<Element, P>) -> (P) -> (Element) -> Bool {
             return { p in
                 return { e in
                     let v = e[keyPath: keyPath]
@@ -66,8 +45,8 @@ class MainPageInteractor {
             .map { [weak self] newValue in
                 guard let self = self else { return [] }
                 return newValue
-                    .filter(filterBuilder(\.name)(self.namePredicate.value))
-                    .filter(filterBuilder(\.renditionName)(self.renditionPredicate.value))
+                    .filter(builder(\.name)(self.namePredicate.value))
+                    .filter(builder(\.renditionName)(self.renditionPredicate.value))
             }
             .subscribe(filtered)
             .store(in: &disposeBag)
@@ -76,8 +55,8 @@ class MainPageInteractor {
             .sink { [weak self] name, rendition in
                 guard let self = self else { return }
                 self.filtered.value = self.subject.value
-                    .filter(filterBuilder(\.name)(name))
-                    .filter(filterBuilder(\.renditionName)(rendition))
+                    .filter(builder(\.name)(name))
+                    .filter(builder(\.renditionName)(rendition))
             }
             .store(in: &disposeBag)
     }

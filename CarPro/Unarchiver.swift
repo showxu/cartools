@@ -10,7 +10,7 @@ import CartoolKit
 
 @objcMembers class Unarchiver: NSObject {
     
-    private var readers: [(filerURL: URL, reader: Car.Reader<Rendition>)]!
+    private var readers: [(filerURL: URL, reader: Reader<Rendition>)]!
     
     @objc public func unarchive(_ pboard: NSPasteboard!, userData: String!, error: AutoreleasingUnsafeMutablePointer<NSString?>) {
         guard
@@ -20,7 +20,7 @@ import CartoolKit
         }
         do {
             readers = try fileURLs.map {
-                try ($0, Car.Reader(.init(uiCatalogName: "", url: $0)))
+                try ($0, Reader(.init($0)))
             }
             try readers.map {
                 try (fileURL: $0.filerURL, renditions: $0.reader.read())

@@ -8,11 +8,10 @@
 import Cocoa
 import Quartz
 import CartoolKit
-import CoreUI
 
 class PreviewViewController: NSViewController, QLPreviewingController {
     
-    private var _reader: Car.Reader<LazyRendition>!
+    private var reader: Reader<LazyRendition>!
     
     override var nibName: NSNib.Name? {
         "PreviewViewController"
@@ -39,8 +38,8 @@ class PreviewViewController: NSViewController, QLPreviewingController {
         // Call the completion handler so Quick Look knows that the preview is fully loaded.
         // Quick Look will display a loading spinner while the completion handler is not called.
         do {
-            try _reader = Car.Reader<LazyRendition>.init(Car.init(uiCatalogName: "", url: url))
-            try _ = _reader.read()
+            try reader = .init(.init(url))
+            try _ = reader.read()
         } catch {
             handler(error)
         }
