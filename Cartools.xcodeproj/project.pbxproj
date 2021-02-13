@@ -291,7 +291,7 @@
 			name = Rendition;
 			sourceTree = "<group>";
 		};
-		C10B9AF725A6F93700B19334 /* CartoolKit */ = {
+		C10B9AF725A6F93700B19334 /* cartooldt */ = {
 			isa = PBXGroup;
 			children = (
 				C10B9AF825A6F93700B19334 /* CartoolKit.h */,
@@ -304,7 +304,7 @@
 				27308B8825D59459008494FA /* CoreSVG.swift */,
 				C10B9AF925A6F93700B19334 /* Info.plist */,
 			);
-			path = CartoolKit;
+			path = cartooldt;
 			sourceTree = "<group>";
 		};
 		C13D2BA725B00134004894E8 /* Application */ = {
@@ -381,10 +381,10 @@
 			children = (
 				C1AA96D725A714E5008D743F /* PrivateFrameworks.xcconfig */,
 				C18D052F25A7014B006E7EB9 /* Cartools.xcconfig */,
-				C10B9AF725A6F93700B19334 /* CartoolKit */,
+				C10B9AF725A6F93700B19334 /* cartooldt */,
 				C157C04625AC223D00807357 /* CarPro */,
 				C1E7506B258349C200395B8B /* PreviewAppex */,
-				C1E75026258342AC00395B8B /* cartool */,
+				C1E75026258342AC00395B8B /* CLI */,
 				C157C06125AC224A00807357 /* Tests */,
 				C157C06C25AC225100807357 /* UITests */,
 				C1E75068258349C200395B8B /* Frameworks */,
@@ -406,12 +406,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C1E75026258342AC00395B8B /* cartool */ = {
+		C1E75026258342AC00395B8B /* CLI */ = {
 			isa = PBXGroup;
 			children = (
 				C1E750F9258351E700395B8B /* main.swift */,
 			);
-			path = cartool;
+			path = CLI;
 			sourceTree = "<group>";
 		};
 		C1E75068258349C200395B8B /* Frameworks */ = {
