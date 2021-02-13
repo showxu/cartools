@@ -16,7 +16,7 @@ struct Cartool: ParsableCommand {
     @Argument(help: "The .car file path to parse.")
     var filePath: String
     
-    @Argument(help: "Output dir to place extracted car file.")
+    @Argument(help: "Output dir to place extracted car file resources.")
     var output: String
 
     mutating func run() throws {
