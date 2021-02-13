@@ -23,7 +23,7 @@ struct Cartool: ParsableCommand {
         let fileURL = URL(fileURLWithPath: filePath)
         let outputURL = URL(fileURLWithPath: output)
         print(fileURL, outputURL)
-        let reader: Reader<LazyRendition> = try Reader(.init(fileURL))
+        let reader = try Reader(.init(fileURL))
         let renditions = try reader.read()
         try renditions.forEach { try $0.writeTo(outputURL) }
     }
