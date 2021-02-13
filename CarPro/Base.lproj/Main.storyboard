@@ -426,7 +426,7 @@
         <scene sceneID="A9p-Vb-Xlf">
             <objects>
                 <windowController storyboardIdentifier="MainWindowController" id="YqN-Kg-aC1" customClass="MainWindowController" customModule="Final_Car_Pro" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingIdentifier="MainPage" tabbingMode="preferred" toolbarStyle="unified" id="jvB-x5-BDn">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingIdentifier="MainPage" tabbingMode="preferred" toolbarStyle="unified" id="jvB-x5-BDn">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="425" y="462" width="815" height="549"/>

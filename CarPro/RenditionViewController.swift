@@ -24,6 +24,10 @@ class RenditionViewController: NSViewController {
     
     @IBOutlet var renditionField: NSTextField!
     @IBOutlet var scaleField: NSTextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
 
 extension RenditionViewController {

@@ -10,4 +10,4 @@
 
 SYSTEM_FRAMEWORK_SEARCH_PATHS = $(inherited) $(SYSTEM_LIBRARY_DIR)/PrivateFrameworks
 
-SWIFT_INCLUDE_PATHS = $(inherited) $(SRCROOT)/PrivateFrameworks/CoreThemeDefinition.framework  $(SRCROOT)/PrivateFrameworks/CoreUI.framework/
+SWIFT_INCLUDE_PATHS = $(inherited) $(SRCROOT)/PrivateFrameworks/CoreThemeDefinition.framework  $(SRCROOT)/PrivateFrameworks/CoreUI.framework
