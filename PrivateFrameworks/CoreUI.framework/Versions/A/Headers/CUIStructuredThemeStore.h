@@ -19,7 +19,7 @@
 @property (readonly) Class superclass;
 
 - (id)aliasForName:(id)arg1;
-- (id)allImageNames;
+- (NSArray<NSString *>*)allImageNames;
 - (unsigned short)appearanceIdentifierForName:(id)arg1;
 - (id)appearances;
 - (BOOL)assetExistsForKey:(const struct _renditionkeytoken *)arg1;
@@ -54,7 +54,7 @@
 - (id)renditionInfoForIdentifier:(unsigned short)arg1;
 - (const struct _renditionkeytoken *)renditionKeyForName:(id)arg1;
 - (const struct _renditionkeytoken *)renditionKeyForName:(id)arg1 cursorHotSpot:(CGPoint *)arg2;
-- (CUIThemeRendition *)renditionNameForKeyList:(struct _renditionkeytoken *)arg1;
+- (NSString *)renditionNameForKeyList:(const struct _renditionkeytoken *)arg1;
 - (CUIThemeRendition *)renditionWithKey:(const struct _renditionkeytoken *)arg1;
 - (CUIThemeRendition *)renditionWithKey:(const struct _renditionkeytoken *)arg1 usingKeySignature:(id)arg2;
 - (void)setBundleID:(id)arg1;

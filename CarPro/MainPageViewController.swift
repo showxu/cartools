@@ -43,14 +43,14 @@ class MainPageViewController: NSSplitViewController {
             viewItem.label.stringValue = dataItem.name
         }
         dp0.didSelectItemsAtIndexPaths = { [weak self] _, indexPaths, dataItems in
-            self?.interactor.renditionPredicate.value = dataItems.first?.label ?? ""
+            self?.interactor.renditionClassPredicate.value = dataItems.first?.label ?? ""
         }
         dp0.dataSource = SidebarCategory.default
         sidebar.dataProvider = dp0
 
         let dp1 = CollectionViewDataProvider<RenditionViewItem, LazyRendition>(.renditionItem, renditionCollection.collectionView)
         dp1.itemForRepresentedObjectAtIndexPath = { _, indexPath, viewItem, dataItem in
-            viewItem.label.stringValue = dataItem.name
+            viewItem.label.stringValue = dataItem.fileName
             viewItem.vectorView.isHidden = !dataItem.isVector
             viewItem.thumbnailImageView.image = dataItem.unsafeCreatedNSImage
         }

@@ -5,9 +5,7 @@
 //  Created by Xudong Xu on 1/7/21.
 //
 
-import CoreThemeDefinition
 import CoreUI
-import Cocoa
 
 public class Reader<T> where T: Rendition {
 
@@ -54,11 +52,13 @@ public class Reader<T> where T: Rendition {
     }
     
     private func readTheme(_ catalog: CUICatalog) -> [T] {
-        return catalog.allAssetKeys.compactMap { key in
+        let result: [T] = catalog.allAssetKeys.compactMap { key in
             guard let rendition = catalog._themeStore()?.rendition(withKey: key.keyList()) else {
                 return nil
             }
-            return T(rendition)
+            let name = catalog._themeStore()?.renditionName(forKeyList: key.keyList())
+            return T(rendition, name ?? "")
         }
+        return result
     }
 }

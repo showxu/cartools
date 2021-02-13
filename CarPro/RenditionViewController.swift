@@ -22,7 +22,10 @@ class RenditionViewController: NSViewController {
     @IBOutlet var renditionView: NSImageView!
     @IBOutlet var nameField: NSTextField!
     
+    @IBOutlet var renditionTitleView: NSView!
     @IBOutlet var renditionField: NSTextField!
+    
+    @IBOutlet var renditionClassField: NSTextField!
     @IBOutlet var scaleField: NSTextField!
     
     override func viewDidLoad() {
@@ -34,11 +37,14 @@ extension RenditionViewController {
     
     var rendition: LazyRendition! {
         set {
-            _ = self.view
             renditionView.image = newValue?.unsafeCreatedNSImage
-            nameField.stringValue = newValue?.name ?? ""
+            nameField.stringValue = newValue?.fileName ?? ""
             renditionField.stringValue = newValue?.renditionName ?? ""
+            renditionClassField.stringValue = newValue?.renditionClass ?? ""
             scaleField.stringValue = newValue == nil ? "" : "\(newValue!.scale)"
+            
+            renditionTitleView.isHidden = newValue?.renditionName.isEmpty ?? false
+            renditionField.isHidden = newValue?.renditionName.isEmpty ?? false
         } get {
             return nil
         }

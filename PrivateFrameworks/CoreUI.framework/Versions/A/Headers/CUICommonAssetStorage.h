@@ -53,7 +53,7 @@
 }
 
 - (NSArray <CUIRenditionKey *> *)allAssetKeys;
-- (id)allRenditionNames;
+- (NSArray <NSString *> *)allRenditionNames;
 - (id)appearances;
 
 @end

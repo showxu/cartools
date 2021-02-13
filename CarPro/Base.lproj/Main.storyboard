@@ -426,7 +426,7 @@
         <scene sceneID="A9p-Vb-Xlf">
             <objects>
                 <windowController storyboardIdentifier="MainWindowController" id="YqN-Kg-aC1" customClass="MainWindowController" customModule="Final_Car_Pro" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingIdentifier="MainPage" tabbingMode="preferred" toolbarStyle="unified" id="jvB-x5-BDn">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingIdentifier="MainPage" tabbingMode="preferred" toolbarStyle="unified" id="jvB-x5-BDn">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="425" y="462" width="815" height="549"/>
@@ -455,7 +455,7 @@
                                     <size key="minSize" width="96" height="22"/>
                                     <size key="maxSize" width="9999999" height="22"/>
                                     <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="ecP-Vq-a7e">
-                                        <rect key="frame" x="0.0" y="14" width="96" height="22"/>
+                                        <rect key="frame" x="0.0" y="14" width="141" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" alignment="left" allowsEditingTextAttributes="YES" usesSingleLineMode="YES" bezelStyle="round" sendsWholeSearchString="YES" id="aw4-rJ-crS">
                                             <font key="font" metaFont="system"/>
@@ -627,19 +627,35 @@
                                         </textFieldCell>
                                     </textField>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="3" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YPS-4E-IbF">
-                                        <rect key="frame" x="20" y="180" width="60" height="73"/>
+                                        <rect key="frame" x="20" y="142" width="100" height="111"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VBf-i8-tq9">
-                                                <rect key="frame" x="-2" y="57" width="64" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Rendition" id="Tw4-Jm-gvd">
+                                                <rect key="frame" x="-2" y="95" width="104" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Rendition Name" id="Tw4-Jm-gvd">
                                                     <font key="font" metaFont="systemSemibold" size="13"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U7s-eK-ueB">
-                                                <rect key="frame" x="-2" y="38" width="54" height="16"/>
+                                                <rect key="frame" x="-2" y="76" width="54" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" id="xQb-le-ypN">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="joM-B1-q3x">
+                                                <rect key="frame" x="-2" y="57" width="102" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Rendition Class" id="4y8-AS-11M">
+                                                    <font key="font" metaFont="systemSemibold" size="13"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WXH-JH-ogo">
+                                                <rect key="frame" x="-2" y="38" width="54" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" id="0gc-d1-1Vn">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -667,8 +683,12 @@
                                             <integer value="1000"/>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
@@ -701,7 +721,9 @@
                     <connections>
                         <outlet property="decorateView" destination="25Q-oY-dXa" id="GVP-Sb-268"/>
                         <outlet property="nameField" destination="I8c-vc-LsW" id="L0x-8S-9T6"/>
+                        <outlet property="renditionClassField" destination="WXH-JH-ogo" id="JBh-T9-heB"/>
                         <outlet property="renditionField" destination="U7s-eK-ueB" id="QZ0-fV-5aj"/>
+                        <outlet property="renditionTitleView" destination="VBf-i8-tq9" id="tpb-72-Nye"/>
                         <outlet property="renditionView" destination="dMz-3B-KZ5" id="Wee-6T-Du7"/>
                         <outlet property="scaleField" destination="lvo-ko-Rmf" id="yFj-rI-58S"/>
                     </connections>

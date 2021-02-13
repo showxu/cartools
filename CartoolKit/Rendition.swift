@@ -8,7 +8,6 @@
 import Cocoa
 import CoreUI
 import UniformTypeIdentifiers
-import CoreGraphics
 
 public class LazyRendition: Rendition {
     
@@ -30,7 +29,7 @@ public class LazyRendition: Rendition {
 
 public class Rendition {
 
-    public var name: String {
+    public var fileName: String {
         internalRendition.name()
     }
         
@@ -38,9 +37,11 @@ public class Rendition {
         internalRendition.internalName
     }
     
-    public var renditionName: String {
+    public var renditionClass: String {
         internalRendition.className.replacingOccurrences(of: "_", with: "")
     }
+    
+    public let renditionName: String
     
     public var scale: Int {
         Int(internalRendition.scale())
@@ -68,8 +69,9 @@ public class Rendition {
     
     internal var internalRendition: CUIThemeRendition
     
-    required init(_ rendition: CUIThemeRendition) {
-        internalRendition = rendition
+    required init(_ rendition: CUIThemeRendition, _ renditionName: String) {
+        self.internalRendition = rendition
+        self.renditionName = renditionName
     }
     
     public func unsafeCreateImage() -> CGImage? {
@@ -88,10 +90,20 @@ public class Rendition {
     
     @discardableResult
     public func writeTo(_ providedURL: URL, options: Data.WritingOptions = [.atomicWrite]) throws -> URL {
-        if !FileManager.default.fileExists(atPath: providedURL.path) {
-            try FileManager.default.createDirectory(at: providedURL, withIntermediateDirectories: true, attributes: nil)
+        var fileURL = providedURL
+        if !renditionName.isEmpty {
+            fileURL.appendPathComponent(renditionName)
         }
-        var fileURL = providedURL.appendingPathComponent(name)
+        if !FileManager.default.fileExists(atPath: fileURL.path) {
+            try FileManager.default.createDirectory(at: fileURL, withIntermediateDirectories: true, attributes: nil)
+        }
+        if scale > 1 {
+            let file = URL(string: "file:///\(fileName)".addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!)!
+            let pathExtension = file.pathExtension
+            fileURL.appendPathComponent("\(fileName.dropLast(pathExtension.count + 1))@\(scale)x.\(pathExtension)")
+        } else {
+            fileURL.appendPathComponent(fileName)
+        }
         
         if isSVG {
             CGSVGDocumentWriteToURL(internalRendition.svgDocument(), fileURL as CFURL, nil)

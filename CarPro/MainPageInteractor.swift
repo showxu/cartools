@@ -19,7 +19,7 @@ class MainPageInteractor {
     
     let namePredicate: CurrentValueSubject<String, Never> = .init("")
     
-    let renditionPredicate: CurrentValueSubject<String, Never> = .init("")
+    let renditionClassPredicate: CurrentValueSubject<String, Never> = .init("")
     
     private(set) var disposeBag: Set<AnyCancellable> = .init()
     
@@ -45,18 +45,18 @@ class MainPageInteractor {
             .map { [weak self] newValue in
                 guard let self = self else { return [] }
                 return newValue
-                    .filter(builder(\.name)(self.namePredicate.value))
-                    .filter(builder(\.renditionName)(self.renditionPredicate.value))
+                    .filter(builder(\.fileName)(self.namePredicate.value))
+                    .filter(builder(\.renditionClass)(self.renditionClassPredicate.value))
             }
             .subscribe(filtered)
             .store(in: &disposeBag)
 
-        namePredicate.combineLatest(renditionPredicate)
+        namePredicate.combineLatest(renditionClassPredicate)
             .sink { [weak self] name, rendition in
                 guard let self = self else { return }
                 self.filtered.value = self.subject.value
-                    .filter(builder(\.name)(name))
-                    .filter(builder(\.renditionName)(rendition))
+                    .filter(builder(\.fileName)(name))
+                    .filter(builder(\.renditionClass)(rendition))
             }
             .store(in: &disposeBag)
     }

@@ -5,9 +5,8 @@
 //  Created by Xudong Xu on 2/12/21.
 //
 
-import CoreGraphics
+import CoreFoundation
 import CoreUI
-import AppKit
 
 let CGSVGDocumentWriteToData: @convention(c) (UnsafeMutablePointer<CGSVGDocument>?, CFData?, CFDictionary?) -> Void = {
     let RTLD_DEFAULT = UnsafeMutablePointer<Any>(bitPattern: -2)
