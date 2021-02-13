@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2727EF3725D6FDB80064380C /* SidebarCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2727EF3625D6FDB80064380C /* SidebarCategory.swift */; };
 		27308B8925D59459008494FA /* CoreSVG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27308B8825D59459008494FA /* CoreSVG.swift */; };
 		27806C8525D5042B0007A62B /* RenditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27806C8425D5042B0007A62B /* RenditionViewController.swift */; };
 		27A52C0625D6A670004DDAAB /* MainPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A52C0525D6A670004DDAAB /* MainPageInteractor.swift */; };
@@ -110,6 +111,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2727EF3625D6FDB80064380C /* SidebarCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarCategory.swift; sourceTree = "<group>"; };
 		27308B8825D59459008494FA /* CoreSVG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSVG.swift; sourceTree = "<group>"; };
 		27806C8425D5042B0007A62B /* RenditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenditionViewController.swift; sourceTree = "<group>"; };
 		27A52C0525D6A670004DDAAB /* MainPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageInteractor.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				27A52C1325D6AE76004DDAAB /* SidebarViewItem.swift */,
 				27A52C4125D6B989004DDAAB /* SidebarLayout.swift */,
 				C15A4E8B25AC91F7008C70E3 /* SidebarViewController.swift */,
+				2727EF3625D6FDB80064380C /* SidebarCategory.swift */,
 			);
 			name = Sidebar;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 				27A52C0625D6A670004DDAAB /* MainPageInteractor.swift in Sources */,
 				C1F918E825AEEF9800E7A24F /* DocumentController.swift in Sources */,
 				C15A4E9F25AC92E8008C70E3 /* RenditionCollectionLayout.swift in Sources */,
+				2727EF3725D6FDB80064380C /* SidebarCategory.swift in Sources */,
 				C15A4EA625AC935C008C70E3 /* CollectionViewDataProvider.swift in Sources */,
 				C15A4E9825AC92CB008C70E3 /* RenditionViewItem.swift in Sources */,
 				C13D2BA225B000C1004894E8 /* MainPageViewController.swift in Sources */,

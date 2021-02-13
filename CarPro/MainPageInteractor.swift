@@ -9,6 +9,27 @@ import Cocoa
 import Combine
 import CartoolKit
 
+extension Array {
+    
+    fileprivate func filter<T>(
+        _ keyPath: KeyPath<Element, T>,
+        _ predicate: T,
+        _ isInclude: (T, T) throws -> Bool) rethrows -> [Element] {
+        return try filter {
+            try isInclude($0[keyPath: keyPath], predicate)
+        }
+    }
+    
+    fileprivate func filter<T>(
+        _ keyPath: KeyPath<Element, T>,
+        _ predicate: T,
+        _ isInclude: (T) throws -> (T) throws -> Bool) rethrows -> [Element] {
+        return try filter {
+            try isInclude($0[keyPath: keyPath])(predicate)
+        }
+    }
+}
+
 class MainPageInteractor {
 
     let filtered: CurrentValueSubject<[LazyRendition], Error> = .init([])
@@ -17,7 +38,9 @@ class MainPageInteractor {
     
     let focusOn: CurrentValueSubject<LazyRendition?, Never> = .init(nil)
     
-    let predicate: CurrentValueSubject<String, Never> = .init("")
+    let namePredicate: CurrentValueSubject<String, Never> = .init("")
+    
+    let renditionPredicate: CurrentValueSubject<String, Never> = .init("")
     
     private(set) var disposeBag: Set<AnyCancellable> = .init()
     
@@ -29,19 +52,32 @@ class MainPageInteractor {
     }
 
     private func combine() {
+        func filterBuilder<Element, P: StringProtocol>(_ keyPath: KeyPath<Element, P>) -> (P) -> (Element) -> Bool {
+            return { p in
+                return { e in
+                    let v = e[keyPath: keyPath]
+                    guard !p.isEmpty else { return true }
+                    return v.contains(p)
+                }
+            }
+        }
+        
         subject
             .map { [weak self] newValue in
                 guard let self = self else { return [] }
-                let p = self.predicate.value
-                return p.isEmpty ? newValue : newValue.filter { $0.name.contains(p) }
+                return newValue
+                    .filter(filterBuilder(\.name)(self.namePredicate.value))
+                    .filter(filterBuilder(\.renditionName)(self.renditionPredicate.value))
             }
             .subscribe(filtered)
             .store(in: &disposeBag)
-        
-        predicate
-            .sink { [weak self] p in
+
+        namePredicate.combineLatest(renditionPredicate)
+            .sink { [weak self] name, rendition in
                 guard let self = self else { return }
-                self.filtered.value = p.isEmpty ? self.subject.value : self.subject.value.filter { $0.name.contains(p) }
+                self.filtered.value = self.subject.value
+                    .filter(filterBuilder(\.name)(name))
+                    .filter(filterBuilder(\.renditionName)(rendition))
             }
             .store(in: &disposeBag)
     }

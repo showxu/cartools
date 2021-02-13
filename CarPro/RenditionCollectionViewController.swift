@@ -6,7 +6,6 @@
 //
 
 import Cocoa
-import CartoolKit
 
 class RenditionCollectionViewController: NSViewController {
     

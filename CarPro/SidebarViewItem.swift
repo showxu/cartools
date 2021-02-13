@@ -19,13 +19,12 @@ class SidebarViewItem: NSCollectionViewItem {
     static let nibName = NSUserInterfaceItemIdentifier.sidebarItem.rawValue
     
     private struct Appearance {
-        static let background = NSColor(named: "SidebarViewItemBackground")!
     }
     
     @IBOutlet var backgroundView: NSView! {
         didSet {
             backgroundView.wantsLayer = true
-            backgroundView.layer?.backgroundColor = Appearance.background.cgColor
+            backgroundView.layer?.backgroundColor = NSColor.systemBlue.cgColor
             backgroundView.layer?.cornerRadius = 5
             backgroundView.layer?.masksToBounds = true
         }
@@ -45,7 +44,10 @@ class SidebarViewItem: NSCollectionViewItem {
     private func combine() {
         publisher(for: \.isSelected)
             .share()
-            .sink { [weak self] _ in
+            .sink { [weak self] newValue in
+                self?.iconView?.contentTintColor = newValue ? NSColor.white : NSColor.systemBlue
+                self?.label.textColor = newValue ? NSColor.white : NSColor.labelColor
+                self?.backgroundView.isHidden = !newValue
             }
             .store(in: &disposeBag)
     }

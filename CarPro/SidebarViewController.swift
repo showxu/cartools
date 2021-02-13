@@ -6,7 +6,6 @@
 //
 
 import Cocoa
-import CoreUI
 
 class SidebarViewController: NSViewController {
     
@@ -15,7 +14,7 @@ class SidebarViewController: NSViewController {
             let nib = NSNib(nibNamed: SidebarViewItem.nibName, bundle: nil)
             collectionView.register(nib, forItemWithIdentifier: .sidebarItem)
             collectionView.collectionViewLayout = SidebarLayout(
-                height: 40,
+                height: 28,
                 minimumInteritemSpacing: 0,
                 minimumLineSpacing: 0,
                 sectionInset: .init())

@@ -9,13 +9,6 @@ import Cocoa
 import Combine
 import CartoolKit
 
-struct Category: Codable {
-    
-    var name: String
-    var symbol: String
-    var label: String
-}
-
 class MainPageViewController: NSSplitViewController {
     
     private var sidebar: SidebarViewController! {
@@ -44,16 +37,15 @@ class MainPageViewController: NSSplitViewController {
     }
     
     private func build() {
-        let cat = Category(name: "CUIThemeSVGRendition", symbol: "bag.fill.badge.plus", label: "CUIThemeSVGRendition")
- 
-        let dp0 = CollectionViewDataProvider<SidebarViewItem, Category>(.sidebarItem, sidebar.collectionView)
+        let dp0 = CollectionViewDataProvider<SidebarViewItem, SidebarCategory>(.sidebarItem, sidebar.collectionView)
         dp0.itemForRepresentedObjectAtIndexPath = { _, indexPath, viewItem, dataItem in
             viewItem.iconView.image = NSImage(systemSymbolName: dataItem.symbol, accessibilityDescription: nil)
             viewItem.label.stringValue = dataItem.name
         }
         dp0.didSelectItemsAtIndexPaths = { [weak self] _, indexPaths, dataItems in
+            self?.interactor.renditionPredicate.value = dataItems.first?.label ?? ""
         }
-        dp0.dataSource = [cat]
+        dp0.dataSource = SidebarCategory.rendition
         sidebar.dataProvider = dp0
 
         let dp1 = CollectionViewDataProvider<RenditionViewItem, LazyRendition>(.renditionItem, renditionCollection.collectionView)
@@ -92,7 +84,7 @@ class MainPageViewController: NSSplitViewController {
     }
     
     @IBAction func search(_ sender: NSSearchField) {
-        interactor.predicate.value = sender.stringValue
+        interactor.namePredicate.value = sender.stringValue
     }
     
     @IBAction func collapseFirst(_ sender: NSToolbarItem) {

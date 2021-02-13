@@ -800,7 +800,7 @@
                                             <rect key="frame" x="1" y="1" width="178" height="497"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <collectionView id="lWx-MQ-cdp">
+                                                <collectionView selectable="YES" allowsMultipleSelection="YES" id="lWx-MQ-cdp">
                                                     <rect key="frame" x="0.0" y="0.0" width="178" height="497"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="eqd-G0-XWW">
