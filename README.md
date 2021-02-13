@@ -1,8 +1,8 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/0xxd0/swift-cartools/master/static/media/AppIcon.png" alt="swift-cartools" title="swift-cartools" width="256"/>
-<p align="center"><b>swift-cartools</b> is a series of reverse tools for Compiled Asset Catalogs (.car file) written in pure Swift.</p>
+<img src="https://raw.githubusercontent.com/0xxd0/cartools/master/static/media/AppIcon.png" alt="cartools" title="cartools" width="256"/>
+<p align="center"><b>cartools</b> is a series of reverse tools for Compiled Asset Catalogs (.car file) written in pure Swift.</p>
 <p align="center">
-<a href="https://github.com/0xxd0/swift-cartools/actions?query=workflow%3Abuild"><img src="https://github.com/0xxd0/swift-cartools/workflows/build/badge.svg?branch=master"></a>
+<a href="https://github.com/0xxd0/cartools/actions?query=workflow%3Abuild"><img src="https://github.com/0xxd0/cartools/workflows/build/badge.svg?branch=master"></a>
 </p>
 
 
@@ -17,7 +17,7 @@
 ## macOS App Previews and Screenshots
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/0xxd0/swift-cartools/master/static/media/AppHero.png" alt="Final Car Pro" title="Final Car Pro" width="440"/>
+<img src="https://raw.githubusercontent.com/0xxd0/cartools/master/static/media/AppHero.png" alt="Final Car Pro" title="Final Car Pro" width="440"/>
 </p>
 
 **Final Car Pro** is a macOS Application which give you the ability to browse, classify, filter renditions in compiled asset catalog and export resource files.
