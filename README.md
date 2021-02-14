@@ -34,30 +34,34 @@
 - [x] PDF resource display and export.
 - [ ] Dark mode support.
 
-### Install 
+### How To Install 
 
-<!-- #### Download -->
+#### Download directly
 
+Download latest binary release from [release page](https://github.com/0xxd0/cartools/releases).
+
+<!--
 #### Homebrew
 
-Install the tap:
+- Install the tap
 
 ```bash
 brew tap 0xxd0/tap
 ```
 
-Install Application:
+- Install Application
 
 ```bash
-brew install Final\ Car\ Pro
+brew cask install Final\ Car\ Pro
 ```
+-->
 
 
 ## Command Line Tools
 
 **cartool** is a swift Command Line Tools which allow you extract the resource of car file in terminal. 
 
-### Install
+### How To Install
 
 #### Homebrew
 
